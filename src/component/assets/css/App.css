@@ -1,0 +1,57 @@
+:root {
+  --primary-color: #ff6f00;
+  --gray-dark: #343a40;
+  --light-gray: #ededed;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  font-size: 15px !important;
+  -webkit-font-smoothing: antialiased;
+
+  -moz-osx-font-smoothing: grayscale;
+  background-color: rgb(241, 241, 241);
+}
+
+/* Utilities */
+.icon {
+  width: 12px !important;
+  color:skyblue;
+}
+
+a {
+  text-decoration: none;
+}
+
+.btn:focus,
+.btn:active {
+  outline: none !important;
+  box-shadow: none !important;
+  background: none !important;
+}
+
+/* Btn */
+
+/* Drop down */
+.nav-item .dropdown .btn {
+  outline: none !important;
+  border: none;
+  background: var(--light-gray) !important;
+  box-sizing: none !important;
+  color: var(--gray-dark) !important;
+}
+
+.dropdown .dropdown-toggle::after {
+  display: none;
+}
+
+/* Header NavBar  */
