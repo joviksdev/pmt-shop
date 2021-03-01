@@ -103,15 +103,13 @@ const Header = () => {
                 </Hidden>
                 <MenuItem className={classes.menuLink} onClick={toggleMenu}>
                   <PersonIcon />
-                  <Hidden smDown implementation='css'>
-                    <div style={{ display: 'flex', alignItems: 'center' }}>
-                      Login{' '}
-                      <ArrowDropDownIcon
-                        className={`${classes.iconSvg} ${rotateSvg}`}
-                        style={{ marginLeft: '5px' }}
-                      />
-                    </div>
-                  </Hidden>
+                  <div style={{ display: 'flex', alignItems: 'center' }}>
+                    Login{' '}
+                    <ArrowDropDownIcon
+                      className={`${classes.iconSvg} ${rotateSvg}`}
+                      style={{ marginLeft: '5px' }}
+                    />
+                  </div>
                 </MenuItem>
                 <Popper
                   style={{ zIndex: '10000' }}
@@ -166,7 +164,7 @@ const Header = () => {
           </div>
         </Hidden>
         <div className={classes.container}>
-          <Hidden mdDown implementation='css'>
+          <Hidden smDown implementation='css'>
             <CategoryWrapper />
           </Hidden>
         </div>

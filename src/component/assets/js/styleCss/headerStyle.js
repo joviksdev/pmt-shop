@@ -50,6 +50,7 @@ const headerStyle = theme => ({
   },
   menuList: {
     display: 'flex',
+    alignItems: 'center',
     padding: '0 !important'
   },
   menuLink: {
@@ -59,18 +60,19 @@ const headerStyle = theme => ({
     color: grayColor[6],
     fontSize: '14px',
     verticalAlign: 'center',
-    display: 'flex',
+    display: 'none',
+    paddingLeft: '15px',
+    '& .MuiSvgIcon-root': {
+      marginRight: '5px'
+    },
     '&:hover': {
       color: primaryColor
     },
     '& span': {
       fontSize: '8px'
     },
-    '@media (min-width: 768px)': {
-      paddingLeft: '15px',
-      '& .MuiSvgIcon-root': {
-        marginRight: '5px'
-      }
+    '@media (min-width: 960px)': {
+      display: 'flex'
     }
   },
   menuLinkColumn: {

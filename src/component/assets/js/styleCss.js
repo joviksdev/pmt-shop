@@ -55,13 +55,13 @@ const container = {
   padding: '0 15px',
   margin: 'auto',
   '@media (min-width: 768px)': {
-    width: '750px'
+    width: '750px !important'
   },
   '@media (min-width: 992px)': {
-    width: '970px'
+    width: '970px  !important'
   },
   '@media (min-width: 1200px)': {
-    width: '1170px'
+    width: '1170px  !important'
   }
 };
 
@@ -132,7 +132,7 @@ const grayColor = [
 const blackColor = '#000';
 const blueColor = '#3f51b5';
 const whiteColor = '#FFF';
-const primaryColor= '#F4843A';
+const primaryColor = '#F4843A';
 const secColor = '#9b1d93';
 
 const boxShadow = {

@@ -1,8 +1,8 @@
 import React, { useContext } from 'react';
-import AppContext from '../../../context/app/appContext';
-import logo from '../../assets/img/logo.png';
-import SidebarLink from './SidebarLink';
-import SocialLink from './SocialMediaLink'
+import AppContext from '../../../../context/app/appContext';
+import logo from '../../../assets/img/logo.png';
+import SidebarLink from './CategoryLink';
+import SocialLink from '../../parser/SocialMediaLink';
 
 // Material-UI/Core
 import Drawer from '@material-ui/core/Drawer';
@@ -12,7 +12,7 @@ import Typography from '@material-ui/core/Typography';
 // Material-UI/Icon
 import CloseIcon from '@material-ui/icons/Close';
 
-import { primaryColor, whiteColor } from '../../assets/js/styleCss';
+import { primaryColor, whiteColor } from '../../../assets/js/styleCss';
 
 const styles = makeStyles({
   drawer: {
@@ -20,7 +20,13 @@ const styles = makeStyles({
     height: '100%',
     color: primaryColor,
     backgroundColor: whiteColor,
-    padding: '10px'
+    padding: '10px',
+    '@media (min-width: 768px)': {
+      width: '620px !important'
+    },
+    '@media (min-width: 992px)': {
+      width: '920px  !important'
+    }
   },
   headerText: {
     textTransform: 'uppercase',
@@ -65,10 +71,11 @@ const styles = makeStyles({
 const Sidebar = () => {
   const classes = styles();
   const appContext = useContext(AppContext);
-  const { isDisplaySidebar, toggleSideBar } = appContext;
+  const { isDisplaySidebar, toggleSideBar, displaySubSidebar } = appContext;
 
   return (
     <Drawer
+      style={{ zIndex: '20000' }}
       variant='temporary'
       anchor={'left'}
       open={isDisplaySidebar}
@@ -95,7 +102,10 @@ const Sidebar = () => {
           </Typography>
         </div>
         <div>
-          <SidebarLink />
+          <SidebarLink
+            displaySubSidebar={displaySubSidebar}
+            toggleSideBar={toggleSideBar}
+          />
         </div>
         <SocialLink />
       </div>

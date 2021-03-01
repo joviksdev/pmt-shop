@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import CustomInput from '../../../layouts/customComponent/CustomInput';
 import cx from 'classnames';
@@ -121,16 +121,6 @@ const styles = makeStyles({
 
 const Register = () => {
   const classes = styles();
-  const [cardAnimaton, setCardAnimation] = useState('cardHidden');
-  useEffect(() => {
-    let id = setTimeout(function () {
-      setCardAnimation('');
-    }, 700);
-    // Specify how to clean up after this effect:
-    return function cleanup() {
-      window.clearTimeout(id);
-    };
-  });
 
   // Target Pasword Input
   const [isDisplayPassword, setIsDisplayPassword] = useState(false);
@@ -146,7 +136,7 @@ const Register = () => {
       <div className={classes.container}>
         <Grid container className={classes.gridContainer}>
           <Grid className={classes.gridItem} item xs={11} sm={8} md={6}>
-            <Typography className={classes.title} variant='h4'>
+            <Typography className={classes.title} variant='h6'>
               Register
             </Typography>
             <form className={cx(classes.formContainer)}>
@@ -210,7 +200,7 @@ const Register = () => {
                   </InputAdornment>
                 }
               />
-              <Button className={classes.btn}>Login</Button>
+              <Button className={classes.btn}>register</Button>
             </form>
             <Typography className={classes.text} variant='body2' paragraph>
               Already have an account?{' '}

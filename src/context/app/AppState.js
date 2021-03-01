@@ -2,12 +2,17 @@ import React, { useReducer } from 'react';
 import appReducer from './appReducer';
 import AppContext from './appContext';
 
-import { TOGGLE_SIDEBAR } from '../types';
+import {
+  TOGGLE_SIDEBAR,
+  DISPLAY_SUB_SIDEBAR,
+  CLOSE_SUB_SIDEBAR
+} from '../types';
 
 const AppState = props => {
   const initialState = {
-    isToggleSideBar: false,
-    isDisplaySidebar: false
+    isDisplaySidebar: false,
+    isDisplaySubCategory: false,
+    subCategoryData: null
   };
 
   const [state, dispatch] = useReducer(appReducer, initialState);
@@ -18,11 +23,28 @@ const AppState = props => {
     });
   };
 
+  const displaySubSidebar = payload => {
+    dispatch({
+      type: DISPLAY_SUB_SIDEBAR,
+      payload
+    });
+  };
+
+  const closeSubSidebar = () => {
+    dispatch({
+      type: CLOSE_SUB_SIDEBAR
+    });
+  };
+
   return (
     <AppContext.Provider
       value={{
         isDisplaySidebar: state.isDisplaySidebar,
-        toggleSideBar
+        isDisplaySubCategory: state.isDisplaySubCategory,
+        subCategoryData: state.subCategoryData,
+        toggleSideBar,
+        displaySubSidebar,
+        closeSubSidebar
       }}
     >
       {props.children}

@@ -1,6 +1,6 @@
 import React from 'react'
 
-const CategoryList = () => {
+const CategoryList = (categories) => {
   return (
     <div>
       List

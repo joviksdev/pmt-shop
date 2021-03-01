@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom'
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import CustomInput from '../../../layouts/customComponent/CustomInput';
 import cx from 'classnames';
 import Authbar from '../../../layouts/header/Authbar';
@@ -37,7 +37,7 @@ const styles = makeStyles({
     alignItems: 'center'
   },
   gridItem: {
-    margin: 'auto',
+    margin: 'auto'
   },
 
   cardHidden: {
@@ -117,16 +117,6 @@ const styles = makeStyles({
 
 const Login = () => {
   const classes = styles();
-  const [cardAnimaton, setCardAnimation] = useState('cardHidden');
-  useEffect(() => {
-    let id = setTimeout(function () {
-      setCardAnimation('');
-    }, 700);
-    // Specify how to clean up after this effect:
-    return function cleanup() {
-      window.clearTimeout(id);
-    };
-  });
 
   // Target Pasword Input
   const [isDisplayPassword, setIsDisplayPassword] = useState(false);
@@ -140,12 +130,15 @@ const Login = () => {
     <>
       <Authbar />
       <div className={classes.container}>
-        <Grid container className={classes.gridContainer}>
+        <Grid
+          container
+          className={`${classes.gridContainer}`}
+        >
           <Grid className={classes.gridItem} item xs={11} sm={8} md={6}>
-            <Typography className={classes.title} variant='h4'>
+            <Typography className={classes.title} variant='h6'>
               Log in
             </Typography>
-            <form className={cx(classes.formContainer, classes[cardAnimaton])}>
+            <form className={cx(classes.formContainer)}>
               <CustomInput
                 style={{ marginBottom: '10px' }}
                 label='Email'
@@ -176,7 +169,10 @@ const Login = () => {
               <Button className={classes.btn}>Login</Button>
             </form>
             <Typography className={classes.text} variant='body2' paragraph>
-              Don't have an account? <Link className={classes.link} to='/auth/register'>Sign up now.</Link>
+              Don't have an account?{' '}
+              <Link className={classes.link} to='/auth/register'>
+                Sign up.
+              </Link>
             </Typography>
             <Typography className={classes.option} variant='body2' paragraph>
               or

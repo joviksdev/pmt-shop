@@ -1,7 +1,8 @@
 import './component/assets/css/App.css';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import routes from './routes/routes';
-import Sidebar from './component/layouts/sidebar/Sidebar';
+import MinSidebar from './component/layouts/sidebar/category/MinCategoryWrapper';
+import MoveToTop from './component/layouts/parser/MoveToTop';
 
 // Material-UI/Core
 import { makeStyles } from '@material-ui/core/styles';
@@ -34,8 +35,9 @@ function App() {
 
   return (
     <div>
+      <MoveToTop />
       <Router>
-        <Sidebar />
+        <MinSidebar />
         <div className={classes.container}>
           <Switch>{getRoutes(routes)}</Switch>
         </div>

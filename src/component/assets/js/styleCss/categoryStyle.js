@@ -1,4 +1,4 @@
-import { defaultBoxShadow, whiteColor } from '../styleCss';
+import { whiteColor } from '../styleCss';
 
 const categoryStyle = () => ({
   categoryWrapper: {
@@ -22,10 +22,13 @@ const categoryStyle = () => ({
   },
   menuList: {
     display: 'flex',
+    alignItems: 'center',
     padding: '0px !important'
   },
   categoryMenuList: {
-    marginRight: '10px'
+    marginRight: '10px',
+    paddingRight: '10px',
+    paddingLeft: '10px'
   },
   sidebar: {
     backgroundColor: whiteColor,

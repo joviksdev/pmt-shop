@@ -1,6 +1,5 @@
 import React from 'react';
-import img from '../../assets/img/item.jpg';
-import ProductItem from './products/ProductItem';
+import ProductItem from './ProductItem';
 
 // MAterial-UI/Core
 import { makeStyles } from '@material-ui/core/styles';
@@ -12,10 +11,14 @@ import {
   defaultBoxShadow,
   text,
   title
-} from '../../assets/js/styleCss';
+} from '../../../assets/js/styleCss';
 
 const styles = makeStyles({
   container: {
+    marginTop: '15px',
+    marginBottom: '15px'
+  },
+  productContainer: {
     backgroundColor: whiteColor,
     ...container,
     '@media (min-width: 768px)': {
@@ -102,11 +105,11 @@ const styles = makeStyles({
   }
 });
 
-const NewArrival = (props) => {
-  const { headerText, link } = props
+const ProductsWrapper = props => {
+  const { headerText, link, products } = props;
   const classes = styles();
   return (
-    <>
+    <div className={classes.container}>
       <div className={classes.headerTextContainer}>
         <div className={`${classes.headerText}`}>
           <Typography paragraph variant='body1'>
@@ -115,50 +118,23 @@ const NewArrival = (props) => {
           <span>View more</span>
         </div>
       </div>
-      <div className={classes.container}>
+      <div className={classes.productContainer}>
         <Grid className={classes.gridContainer} container>
-          <Grid className={classes.gridItem} item xs={6} md={3}>
-            <ProductItem
-              img={img}
-              name={'item name'}
-              price={'5000'}
-              discount={'-20%'}
-            />
-          </Grid>
-          <Grid className={classes.gridItem} item xs={6} md={3}>
-            <ProductItem
-              img={img}
-              name={'item name'}
-              price={'5000'}
-              discount={'-20%'}
-            />
-          </Grid>
-          <Grid className={classes.gridItem} item xs={6} md={3}>
-            <ProductItem
-              img={img}
-              name={'item name'}
-              price={'5000'}
-              discount={'-20%'}
-            />
-          </Grid>
-          <Grid
-            className={classes.gridItem}
-            name={'item name'}
-            item
-            xs={6}
-            md={3}
-          >
-            <ProductItem
-              img={img}
-              name={'item name'}
-              price={'5000'}
-              discount={'-20%'}
-            />
-          </Grid>
+          {products &&
+            products.map((product, key) => (
+              <Grid key={key} className={classes.gridItem} item xs={6} md={3}>
+                <ProductItem
+                  img={product.img}
+                  name={product.name}
+                  price={product.price}
+                  discount={product.discount}
+                />
+              </Grid>
+            ))}
         </Grid>
       </div>
-    </>
+    </div>
   );
 };
 
-export default NewArrival;
+export default ProductsWrapper;

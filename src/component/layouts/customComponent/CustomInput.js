@@ -1,11 +1,11 @@
 import React from 'react';
-// import classNames from 'classnames';
+import classNames from 'classnames';
 
 // @material-ui/core components
 import { makeStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 
-import { transition, primaryColor } from '../../assets/js/styleCss';
+import { transition, primaryColor, whiteColor } from '../../assets/js/styleCss';
 
 const useStyles = makeStyles({
   input: {
@@ -15,6 +15,24 @@ const useStyles = makeStyles({
     },
     '& .MuiInputLabel-root.Mui-focused': {
       color: `${primaryColor} !important`
+    },
+    '& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline': {
+      borderColor: `${primaryColor} !important`
+    },
+    '& .MuiInputBase-input': {
+      padding: '14px'
+    },
+    '& .MuiInputLabel-formControl': {
+      top: '-4px'
+    },
+    '& .MuiInputLabel-formControl.Mui-focused': {
+      top: '1px !important'
+    }
+  },
+  backgroundColor: {
+    '& .MuiInputBase-input': {
+      backgroundColor: whiteColor,
+      borderRadius: '5px'
     }
   }
 });
@@ -31,12 +49,17 @@ export default function CustomInput(props) {
     placeholder,
     fullWidth,
     variant,
+    backgroundColor,
     endAdornment,
     startAdornment,
     style,
     value,
     helperText
   } = props;
+
+  const bgClasses = classNames({
+    [classes.backgroundColor]: backgroundColor
+  });
 
   /*  const labelClasses = classNames({
     [' ' + classes.labelRootError]: error,
@@ -79,7 +102,7 @@ export default function CustomInput(props) {
   return (
     <TextField
       ref={target}
-      className={classes.input}
+      className={`${classes.input} ${bgClasses}`}
       id={id}
       disabled={isDisabled}
       label={label}
