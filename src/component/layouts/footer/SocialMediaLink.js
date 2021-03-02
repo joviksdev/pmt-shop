@@ -11,7 +11,6 @@ import TwitterIcon from '@material-ui/icons/Twitter';
 
 import {
   defaultBoxShadow,
-  blueColor,
   primaryColor,
   grayColor
 } from '../../assets/js/styleCss';

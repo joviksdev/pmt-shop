@@ -47,7 +47,7 @@ const styles = makeStyles({
     fontWeight: 'bold'
   },
   text: {
-    '@media (min-width: 760px)': {
+    '@media (min-width: 960px)': {
       marginBottom: '0px'
     }
   }

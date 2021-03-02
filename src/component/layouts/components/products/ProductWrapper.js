@@ -1,8 +1,10 @@
-import React from 'react';
-import ProductItem from './ProductItem';
+import React, { Suspense } from 'react';
+import Loading from './Loading';
+// import ProductItem from './ProductItem';
 
 // MAterial-UI/Core
 import { makeStyles } from '@material-ui/core/styles';
+
 import { Grid, Typography } from '@material-ui/core';
 import {
   container,
@@ -12,6 +14,8 @@ import {
   text,
   title
 } from '../../../assets/js/styleCss';
+
+const ProductItem = React.lazy(() => import('./ProductItem'));
 
 const styles = makeStyles({
   container: {
@@ -68,7 +72,6 @@ const styles = makeStyles({
     }
   },
   imageWrapper: {
-    width: '100%',
     '& img': {
       display: 'block',
       width: '100%'
@@ -106,7 +109,7 @@ const styles = makeStyles({
 });
 
 const ProductsWrapper = props => {
-  const { headerText, link, products } = props;
+  const { headerText, products } = props;
   const classes = styles();
   return (
     <div className={classes.container}>
@@ -123,12 +126,14 @@ const ProductsWrapper = props => {
           {products &&
             products.map((product, key) => (
               <Grid key={key} className={classes.gridItem} item xs={6} md={3}>
-                <ProductItem
-                  img={product.img}
-                  name={product.name}
-                  price={product.price}
-                  discount={product.discount}
-                />
+                <Suspense fallback={<Loading />}>
+                  <ProductItem
+                    img={product.img}
+                    name={product.name}
+                    price={product.price}
+                    discount={product.discount}
+                  />
+                </Suspense>
               </Grid>
             ))}
         </Grid>

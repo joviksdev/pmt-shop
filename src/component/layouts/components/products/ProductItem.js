@@ -26,7 +26,20 @@ const styles = makeStyles({
     padding: '10px !important'
   },
   imageWrapper: {
-    maxWidth: '160px',
+    width: '120px',
+    height: '120px',
+    '@media (min-width: 768px)': {
+      width: '140px !important',
+      height: '140px !important'
+    },
+    '@media (min-width: 992px)': {
+      width: '160px  !important',
+      height: '160px  !important'
+    },
+    '@media (min-width: 1200px)': {
+      width: '180px  !important',
+      height: '180px  !important'
+    },
     margin: 'auto',
     '& img': {
       display: 'block',
