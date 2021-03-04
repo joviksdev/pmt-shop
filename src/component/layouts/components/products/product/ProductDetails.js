@@ -1,11 +1,10 @@
 import React from 'react';
-import DeliveryDetails from './DeliveryDetails';
+// import DeliveryDetails from './DeliveryDetails';
 
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
-import Hidden from '@material-ui/core/Hidden';
 import { primaryColor, whiteColor } from '../../../../assets/js/styleCss';
 
 // Material-UI/Icon
@@ -49,32 +48,40 @@ const styles = makeStyles({
   }
 });
 
-const ProductDetails = () => {
+const ProductDetails = props => {
+  const { name, brand, price, addToCart } = props;
   const classes = styles();
+
   return (
     <div className={classes.container}>
       <Typography color='textSecondary' variant='h5'>
-        Nike Sporting Shoe
+        {name}
       </Typography>
-      <Typography
-        style={{ marginBottom: '3px' }}
-        color='textSecondary'
-        paragraph
-        variant='body2'
-      >
-        Brand: <span className={classes.textBrand}>Nike</span>
-      </Typography>
+      {brand && (
+        <Typography
+          style={{ marginBottom: '3px' }}
+          color='textSecondary'
+          paragraph
+          variant='body2'
+        >
+          Brand: <span className={classes.textBrand}>{brand}</span>
+        </Typography>
+      )}
       <Typography
         style={{ fontWeight: 'bold', fontSize: '18px' }}
         color='textSecondary'
         paragraph
         variant='h6'
       >
-        Price: <span>&#8358;</span> {'  '}12000
+        Price: <span>&#8358;</span> {'  '}
+        {price}
       </Typography>
       <Grid container spacing={1}>
         <Grid item xs={6}>
-          <Button className={`${classes.btn} ${classes.btnBg}`}>
+          <Button
+            onClick={() => addToCart()}
+            className={`${classes.btn} ${classes.btnBg}`}
+          >
             <AddShoppingCartIcon />
             Add to cart
           </Button>

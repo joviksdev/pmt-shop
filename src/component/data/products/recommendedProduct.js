@@ -8,7 +8,9 @@ const products = [
     name: 'Shoe',
     img: shoe6,
     price: '8000',
-    discount: '-10%'
+    discount: '-10%',
+    description:
+      'Simple and Fashionable, Soft and Comfortable, Lightweight and wear-resistant. It is perfect for daily use. This classic monk single buckle shoes features Genuine Leather upper, slip on design for easy on/off wear, and monk shoes detailing on side for added style. Moreover, It is finished with smooth leather Lining, cushioned footbed for comfort, and non-skid outsole. This kind of shoes you wear, jeans or pants collocation, make you reflect the tough temperament.'
   },
   {
     name: 'Ring',

@@ -2,17 +2,17 @@ import React from 'react';
 import Header from '../../layouts/header/Header';
 import Footer from '../../layouts/footer/FooterWrapper';
 import MobileBottomNavbar from '../../layouts/navbar/MobileBottomNavbar';
-import ProductView from '../../layouts/components/products/product/ProductView';
+import CartWrapper from '../../layouts/components/cart/CartWrapper';
 
-const Product = props => {
+const Cart = () => {
   return (
     <div>
       <Header />
       <MobileBottomNavbar />
-      <ProductView {...props} />
+      <CartWrapper />
       <Footer />
     </div>
   );
 };
 
-export default Product;
+export default Cart;

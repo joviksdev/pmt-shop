@@ -1,7 +1,12 @@
 import './component/assets/css/App.css';
+import React, { useEffect, useContext } from 'react';
+import AppContext from './context/app/appContext';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import routes from './routes/routes';
 import MinSidebar from './component/layouts/sidebar/category/MinCategoryWrapper';
+import ToastAlert, {
+  setToastAlert
+} from './component/layouts/components/alert/ToastAlert';
 
 // Material-UI/Core
 import { makeStyles } from '@material-ui/core/styles';
@@ -17,13 +22,32 @@ const styles = makeStyles({
   }
 });
 
-function App() {
+function App(props) {
   const classes = styles();
+  const appContext = useContext(AppContext);
+  const { getCart, alertMsg } = appContext;
+
+  // Load Cart
+  useEffect(
+    () => {
+      getCart();
+    },
+    // eslint-disable-next-line
+    []
+  );
+
+  // Check fro alert and Display
+  useEffect(() => {
+    if (alertMsg) {
+      setToastAlert({ msg: alertMsg, type: 'error' });
+    }
+  });
 
   // Get Route
   const getRoutes = routes => {
     return routes.map((route, key) => (
       <Route
+        {...props}
         exact
         path={`${route.path}`}
         component={route.component}
@@ -36,6 +60,7 @@ function App() {
     <div>
       <Router>
         <MinSidebar />
+        <ToastAlert />
         <div className={classes.container}>
           <Switch>{getRoutes(routes)}</Switch>
         </div>

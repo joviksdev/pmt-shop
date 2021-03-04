@@ -1,6 +1,6 @@
 import React from 'react';
 import img from '../../assets/img/item.jpg';
-import ProductItem from './products/ProductItem';
+import ProductItem from './ProductItem';
 
 // MAterial-UI/Core
 import { makeStyles } from '@material-ui/core/styles';
@@ -12,7 +12,7 @@ import {
   defaultBoxShadow,
   text,
   title
-} from '../../assets/js/styleCss';
+} from '../../../assets/js/styleCss';
 
 const styles = makeStyles({
   container: {
@@ -103,7 +103,7 @@ const styles = makeStyles({
 });
 
 const NewArrival = (props) => {
-  const { headerText, link } = props
+  const { headerText } = props
   const classes = styles();
   return (
     <>

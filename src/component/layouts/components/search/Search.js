@@ -1,5 +1,5 @@
 import React from 'react';
-import { primaryColor } from '../../assets/js/styleCss';
+import { primaryColor } from '../../../assets/js/styleCss';
 
 // Material-UI/Core
 import TextField from '@material-ui/core/TextField';
@@ -50,7 +50,7 @@ const Search = () => {
           className={classes.textField}
           id='outlined-basic'
           variant='outlined'
-          placeholder={'Search fro products or brands'}
+          placeholder={'Search for products or brands'}
           InputProps={{
             startAdornment: (
               <InputAdornment position='start'>

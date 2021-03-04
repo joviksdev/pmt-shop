@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import cx from 'classnames';
 import CategoryWrapper from '../category/CategoryWrapper';
 import logo from '../../assets/img/logo.png';
-import Search from '../parser/Search';
+import Search from '../components/search/Search';
 
 // @material-ul/core
 
@@ -32,7 +32,7 @@ const Header = () => {
   const classes = useStyles();
 
   const appContext = useContext(AppContext);
-  const { toggleSideBar } = appContext;
+  const { toggleSideBar, carts } = appContext;
 
   const [isDisplay, setIsDisplay] = useState(false);
   const [open, setOpen] = useState(null);
@@ -74,8 +74,14 @@ const Header = () => {
             <div>
               <MenuList className={classes.menuList}>
                 <MenuItem className={classes.menuLinkColumn}>
-                  <Link style={{ position: 'relative' }} to='/'>
-                    <span className={classes.cartNumber}>2</span>
+                  <Link style={{ position: 'relative' }} to='/cart'>
+                    {carts
+                      ? carts.length > 0 && (
+                          <span className={classes.cartNumber}>
+                            {carts.length}
+                          </span>
+                        )
+                      : ''}
                     <ShoppingCartOutlinedIcon />
                     <span>
                       <Hidden implementation='css' smDown>
