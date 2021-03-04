@@ -73,7 +73,7 @@ const MobileBottomNavbar = () => {
             </Link>
           </Grid>
           <Grid className={classes.gridItem} item xs={3}>
-            <Link to='/'>
+            <Link to='/profile'>
               <Button>
                 <PersonIcon />
               </Button>
