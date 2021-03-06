@@ -27,6 +27,9 @@ const useStyles = makeStyles({
     },
     '& .MuiInputLabel-formControl.Mui-focused': {
       top: '1px !important'
+    },
+    '& .MuiOutlinedInput-multiline': {
+      padding: '0px !important'
     }
   },
   backgroundColor: {
@@ -48,6 +51,8 @@ export default function CustomInput(props) {
     type,
     placeholder,
     fullWidth,
+    multiline,
+    rows,
     variant,
     backgroundColor,
     endAdornment,
@@ -108,6 +113,8 @@ export default function CustomInput(props) {
       label={label}
       style={style}
       fullWidth={fullWidth}
+      multiline={multiline}
+      rows={rows}
       placeholder={placeholder}
       value={value}
       type={type}
