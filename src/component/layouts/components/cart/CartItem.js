@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+import { Link } from 'react-router-dom';
 import AppContext from '../../../../context/app/appContext';
 import EmptyCart from './EmptyCart';
 
@@ -168,7 +169,7 @@ const CartItem = props => {
               className={classes.btnLink}
               style={{ marginBottom: '10px' }}
             >
-              check out
+              <Link to='/checkout/item'>check out</Link>
             </Button>
             {carts.map((cart, key) => (
               <div key={key} className={classes.container}>

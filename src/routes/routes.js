@@ -5,6 +5,7 @@ import Profile from '../component/views/pages/Profile';
 import Product from '../component/views/pages/Product';
 import Cart from '../component/views/pages/Cart';
 import RateReview from '../component/views/pages/RateReview';
+import Checkout from '../component/views/pages/Checkout';
 
 const appRoute = [
   {
@@ -41,6 +42,11 @@ const appRoute = [
     path: '/rate-review',
     name: 'Rate and Review',
     component: RateReview
+  },
+  {
+    path: '/checkout/:item',
+    name: 'Checkout',
+    component: Checkout
   }
 ];
 

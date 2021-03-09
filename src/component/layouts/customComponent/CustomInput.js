@@ -19,11 +19,11 @@ const useStyles = makeStyles({
     '& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline': {
       borderColor: `${primaryColor} !important`
     },
-    '& .MuiInputBase-input': {
+    '& .MuiOutlinedInput-input': {
       padding: '14px'
     },
     '& .MuiInputLabel-formControl': {
-      top: '-4px'
+      top: '0px'
     },
     '& .MuiInputLabel-formControl.Mui-focused': {
       top: '1px !important'
