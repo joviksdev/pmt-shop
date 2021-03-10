@@ -1,6 +1,7 @@
 import React from 'react';
 import mastercard from '../../../../../assets/img/mastercard.svg';
 import visacard from '../../../../../assets/img/visa.svg';
+import verve from '../../../../../assets/img/verve.svg';
 import CustomInput from '../../../../customComponent/CustomInput';
 import CustomCheckbox from '../../../../customComponent/CustomCheckbox';
 
@@ -19,7 +20,6 @@ import {
   whiteColor,
   grayColor
 } from '../../../../../assets/js/styleCss';
-import { Hidden } from '@material-ui/core';
 
 const styles = makeStyles({
   container: {
@@ -67,6 +67,9 @@ const styles = makeStyles({
     border: `1px solid ${grayColor[10]}`,
     borderRadius: '5px',
     padding: '5px',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
     '& img': {
       width: '100%'
     }
@@ -92,8 +95,11 @@ const PaymentMethod = props => {
             <div style={{ marginRight: '10px' }} className={classes.imgWrapper}>
               <img src={mastercard} alt='mastercard' />
             </div>
+            <div style={{ marginRight: '10px' }} className={classes.imgWrapper}>
+              <img src={visacard} alt='visacard' />
+            </div>
             <div className={classes.imgWrapper}>
-              <img src={visacard} alt='mastercard' />
+              <img src={verve} alt='vervecard' />
             </div>
           </Box>
           <div style={{ marginTop: '10px' }}>

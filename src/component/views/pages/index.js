@@ -1,14 +1,16 @@
 import React from 'react';
 import Header from '../../layouts/header/Header';
-import Footer from '../../layouts/footer/FooterWrapper'
+import Footer from '../../layouts/footer/FooterWrapper';
 import ShowcaseWrapper from '../../layouts/showcase/ShowcaseWrapper';
 import ProductWrapper from '../../layouts/components/products/ProductWrapper';
 import MobileBottomNavbar from '../../layouts/navbar/MobileBottomNavbar';
 
 // Products
-import newArrival from '../../data/products/newArrival';
-import recommendedProduct from '../../data/products/recommendedProduct';
-import trendingProducts from '../../data/products/trendingProducts';
+import {
+  trendingProducts,
+  newArrival,
+  recommendedProduct
+} from '../../data/products/products';
 
 // Material-UI/Core
 import { makeStyles } from '@material-ui/core/styles';
@@ -34,7 +36,7 @@ const Home = () => {
         headerText={'Recommended for you'}
       />
       <ProductWrapper products={trendingProducts} headerText={'Trending now'} />
-      <Footer/>
+      <Footer />
     </div>
   );
 };

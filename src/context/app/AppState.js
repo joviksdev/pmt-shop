@@ -114,8 +114,6 @@ const AppState = props => {
       const carts = JSON.parse(cartInLocalStorage).filter(
         cart => cart.id !== id
       );
-
-      console.log(carts);
       localStorage.setItem('pmt-cart', JSON.stringify(carts));
     }
   };
@@ -123,6 +121,22 @@ const AppState = props => {
   // Update Cart
   // Imcrement Cart
   const incrementCart = cart => {
+    // Get Item From LocalStorage
+    const itemFromStore = JSON.parse(localStorage.getItem('pmt-cart'));
+
+    // Find item by ID and Increment Quantity and SubTotal
+    const carts = itemFromStore.map(item =>
+      item.id === cart.id
+        ? {
+            ...item,
+            quantity: cart.quantity + 1,
+            subTotal: parseInt(cart.subTotal) + parseInt(cart.price)
+          }
+        : item
+    );
+
+    localStorage.setItem('pmt-cart', JSON.stringify(carts));
+
     dispatch({
       type: INCREMENT_CART,
       payload: cart
@@ -130,10 +144,25 @@ const AppState = props => {
   };
 
   // Decrement Cart
-  const decrementCart = id => {
+  const decrementCart = cart => {
+    // Get Item From LocalStorage
+    const itemFromStore = JSON.parse(localStorage.getItem('pmt-cart'));
+
+    // Find item by ID and Increment Quantity and SubTotal
+    const carts = itemFromStore.map(item =>
+      item.id === cart.id
+        ? {
+            ...item,
+            quantity: cart.quantity - 1,
+            subTotal: parseInt(cart.subTotal) - parseInt(cart.price)
+          }
+        : item
+    );
+
+    localStorage.setItem('pmt-cart', JSON.stringify(carts));
     dispatch({
       type: DECREMENT_CART,
-      payload: id
+      payload: cart
     });
   };
 

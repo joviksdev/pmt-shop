@@ -7,6 +7,7 @@ import MinSidebar from './component/layouts/sidebar/category/MinCategoryWrapper'
 import ToastAlert, {
   setToastAlert
 } from './component/layouts/components/alert/ToastAlert';
+import NotFound from './component/views/pages/NotFound/index.js';
 
 // Material-UI/Core
 import { makeStyles } from '@material-ui/core/styles';
@@ -47,7 +48,6 @@ function App(props) {
   const getRoutes = routes => {
     return routes.map((route, key) => (
       <Route
-        {...props}
         exact
         path={`${route.path}`}
         component={route.component}
@@ -62,7 +62,10 @@ function App(props) {
         <MinSidebar />
         <ToastAlert />
         <div className={classes.container}>
-          <Switch>{getRoutes(routes)}</Switch>
+          <Switch>
+            {getRoutes(routes)}
+            <NotFound />
+          </Switch>
         </div>
       </Router>
     </div>

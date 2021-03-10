@@ -2,7 +2,6 @@ import React, { useState, useContext } from 'react';
 import AppContext from '../../../context/app/appContext';
 import { Link } from 'react-router-dom';
 import cx from 'classnames';
-import CategoryWrapper from '../category/CategoryWrapper';
 import logo from '../../assets/img/logo.png';
 import Search from '../components/search/Search';
 
@@ -24,6 +23,7 @@ import ShoppingCartOutlinedIcon from '@material-ui/icons/ShoppingCartOutlined';
 import AssignmentOutlinedIcon from '@material-ui/icons/AssignmentOutlined';
 import MenuIcon from '@material-ui/icons/Menu';
 import HelpOutlineOutlinedIcon from '@material-ui/icons/HelpOutlineOutlined';
+import FormatListBulletedIcon from '@material-ui/icons/FormatListBulleted';
 
 import styles from '../../assets/js/styleCss/headerStyle';
 const useStyles = makeStyles(styles);
@@ -43,6 +43,15 @@ const Header = () => {
 
   const rotateSvg = cx({ [classes.rotateSvg]: isDisplay });
 
+  const [isHover, setIsHover] = useState(false);
+
+  // Category toggler
+  const handleClick = () => {
+    setIsHover(!isHover);
+  };
+
+  const rotate = cx({ [classes.rotateSvg]: isHover });
+
   return (
     <div style={{ position: 'relative' }} className={classes.headerMainWrapper}>
       <div className={classes.horizontalLine}>
@@ -56,16 +65,18 @@ const Header = () => {
                 />
               </Hidden>
             </div>
-            <Typography
-              className={classes.headerText}
-              variant='h5'
-              component='h2'
-            >
-              <div className={classes.appLogo}>
-                <img src={logo} alt='app logo' />
-              </div>
-              <span> PMT Store</span>
-            </Typography>
+            <Link to='/'>
+              <Typography
+                className={classes.headerText}
+                variant='h5'
+                component='h2'
+              >
+                <div className={classes.appLogo}>
+                  <img src={logo} alt='app logo' />
+                </div>
+                <span> PMT Store</span>
+              </Typography>
+            </Link>
             <div className={classes.headerSearchWrapper}>
               <Hidden mdDown implementation='css'>
                 <Search />
@@ -171,7 +182,30 @@ const Header = () => {
         </Hidden>
         <div className={classes.container}>
           <Hidden smDown implementation='css'>
-            <CategoryWrapper />
+            <div className={classes.categoryWrapper}>
+              <MenuList className={classes.menuList}>
+                <MenuItem
+                  className={`${classes.categoryBtn} ${classes.categoryMenuList}`}
+                  onClick={() => handleClick()}
+                >
+                  <FormatListBulletedIcon style={{ marginRight: '5px' }} />
+                  Categories
+                  <ArrowDropDownIcon className={rotate} />
+                </MenuItem>
+                <MenuItem className={classes.categoryMenuList}>
+                  New Arrivals
+                </MenuItem>
+                <MenuItem className={classes.categoryMenuList}>
+                  Recommended for you
+                </MenuItem>
+                <MenuItem className={classes.categoryMenuList}>
+                  Official Stores
+                </MenuItem>
+                <MenuItem className={classes.categoryMenuList}>
+                  Trending Now
+                </MenuItem>
+              </MenuList>
+            </div>
           </Hidden>
         </div>
       </div>

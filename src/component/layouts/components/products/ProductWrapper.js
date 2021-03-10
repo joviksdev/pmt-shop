@@ -127,12 +127,7 @@ const ProductsWrapper = props => {
             products.map((product, key) => (
               <Grid key={key} className={classes.gridItem} item xs={6} md={3}>
                 <Suspense fallback={<Loading />}>
-                  <ProductItem
-                    img={product.img}
-                    name={product.name}
-                    price={product.price}
-                    discount={product.discount}
-                  />
+                  <ProductItem product={product} />
                 </Suspense>
               </Grid>
             ))}

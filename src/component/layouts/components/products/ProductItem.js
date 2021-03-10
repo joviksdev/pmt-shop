@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 // MAterial-UI/Core
 import { makeStyles } from '@material-ui/core/styles';
@@ -63,8 +64,9 @@ const styles = makeStyles({
     textAlign: 'center'
   },
   cardText: {
+    ...text,
     marginBottom: '0px',
-    ...text
+    textTransform: 'capitalize'
   },
   price: {
     fontWeight: 'bold'
@@ -72,38 +74,44 @@ const styles = makeStyles({
 });
 
 const ProductItem = props => {
-  const { img, discount, name, price } = props;
+  const { id, img, discount, name, price } = props.product;
   const classes = styles();
   return (
-    <Card className={classes.card}>
-      <CardContent className={classes.cardContent}>
-        <Typography className={classes.discountText} variant='body2' paragraph>
-          {discount}
-        </Typography>
-        <div className={classes.imageWrapper}>
-          <img src={img} alt='new arrival' />
-        </div>
-        <div className={classes.description}>
+    <Link to={`/item/${name}/${id}`}>
+      <Card className={classes.card}>
+        <CardContent className={classes.cardContent}>
           <Typography
-            className={classes.cardText}
-            paragraph
+            className={classes.discountText}
             variant='body2'
-            color='textSecondary'
-          >
-            {name}
-          </Typography>
-          <Typography
-            className={`${classes.cardText} ${classes.price}`}
             paragraph
-            variant='body2'
-            color='textSecondary'
           >
-            <span>&#8358;</span>
-            {price}
+            {discount}
           </Typography>
-        </div>
-      </CardContent>
-    </Card>
+          <div className={classes.imageWrapper}>
+            <img src={img} alt={name} />
+          </div>
+          <div className={classes.description}>
+            <Typography
+              className={classes.cardText}
+              paragraph
+              variant='body2'
+              color='textSecondary'
+            >
+              {name}
+            </Typography>
+            <Typography
+              className={`${classes.cardText} ${classes.price}`}
+              paragraph
+              variant='body2'
+              color='textSecondary'
+            >
+              <span>&#8358;</span>
+              {price}
+            </Typography>
+          </div>
+        </CardContent>
+      </Card>
+    </Link>
   );
 };
 

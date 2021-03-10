@@ -7,9 +7,11 @@ import Cart from '../component/views/pages/Cart';
 import RateReview from '../component/views/pages/RateReview';
 import Checkout from '../component/views/pages/Checkout';
 
+const path = window.location.pathname;
+
 const appRoute = [
   {
-    path: '/',
+    path: `${path === '/' && '/'}`,
     name: 'Home',
     component: Index
   },
@@ -24,7 +26,7 @@ const appRoute = [
     component: Register
   },
   {
-    path: '/item/:name',
+    path: '/item/:name/:id',
     name: 'Product',
     component: Product
   },

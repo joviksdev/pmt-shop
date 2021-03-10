@@ -13,7 +13,7 @@ import Hidden from '@material-ui/core/Hidden';
 // Material-UI/Icon
 import IndeterminateCheckBoxIcon from '@material-ui/icons/IndeterminateCheckBox';
 import AddBoxIcon from '@material-ui/icons/AddBox';
-import FavoriteIcon from '@material-ui/icons/Favorite';
+import FavoriteBorderOutlinedIcon from '@material-ui/icons/FavoriteBorderOutlined';
 import DeleteForeverIcon from '@material-ui/icons/DeleteForever';
 
 import {
@@ -81,6 +81,14 @@ const styles = makeStyles({
     display: 'flex',
     alignItems: 'center'
   },
+  link: {
+    color: grayColor[2],
+    textDecoration: 'none',
+    textTransform: 'capitalize',
+    '&:hover': {
+      color: primaryColor
+    }
+  },
   btnIcon: {
     minWidth: 'initial !important',
     padding: '0px'
@@ -110,8 +118,7 @@ const styles = makeStyles({
     color: primaryColor,
     float: 'right',
     '&:hover': {
-      color: whiteColor,
-      backgroundColor: primaryColor,
+      color: primaryColor,
       opacity: '0.8'
     }
   },
@@ -180,13 +187,18 @@ const CartItem = props => {
                     </div>
                   </Grid>
                   <Grid className={classes.gridItem} item xs={8} sm={6} md={6}>
-                    <Typography
-                      style={{ marginBottom: '3px' }}
-                      paragraph
-                      variant='body1'
+                    <Link
+                      className={classes.link}
+                      to={`/item/${cart.name}/${cart.id}`}
                     >
-                      {cart.name}
-                    </Typography>
+                      <Typography
+                        style={{ marginBottom: '3px' }}
+                        paragraph
+                        variant='body1'
+                      >
+                        {cart.name}
+                      </Typography>
+                    </Link>
                     <Typography
                       style={{ marginBottom: '5px' }}
                       paragraph
@@ -196,7 +208,7 @@ const CartItem = props => {
                       {cart.description &&
                         `${cart.description.slice(0, 50)}...`}
                     </Typography>
-                    <Typography>
+                    <Typography color='textSecondary'>
                       &#8358; {'  '} {cart.price}
                     </Typography>
                   </Grid>
@@ -247,7 +259,7 @@ const CartItem = props => {
                     <Button
                       className={`${classes.btn} ${classes.btnFavourite}`}
                     >
-                      <FavoriteIcon />
+                      <FavoriteBorderOutlinedIcon />
                     </Button>
                   </Grid>
                 </Grid>

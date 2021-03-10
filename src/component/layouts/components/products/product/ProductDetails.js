@@ -1,25 +1,40 @@
 import React from 'react';
-// import DeliveryDetails from './DeliveryDetails';
 
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
-import { primaryColor, whiteColor } from '../../../../assets/js/styleCss';
 
 // Material-UI/Icon
 import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart';
 import FavoriteIcon from '@material-ui/icons/Favorite';
+
+import {
+  primaryColor,
+  whiteColor,
+  grayColor
+} from '../../../../assets/js/styleCss';
 
 const styles = makeStyles({
   container: {
     width: '100%'
   },
   headerText: {
-    fontWeight: 'bold'
+    color: grayColor[2],
+    fontWeight: 'bold',
+    fontSize: '16px'
   },
   textBrand: {
     color: primaryColor
+  },
+  text: {
+    marginBottom: '0px',
+    display: 'flex',
+    color: grayColor[6],
+    alignItems: 'center',
+    '& .MuiSvgIcon-root': {
+      marginRight: '10px'
+    }
   },
   btn: {
     textTransform: 'capitalize',
@@ -54,7 +69,11 @@ const ProductDetails = props => {
 
   return (
     <div className={classes.container}>
-      <Typography color='textSecondary' variant='h5'>
+      <Typography
+        style={{ textTransform: 'capitalize' }}
+        color='textSecondary'
+        variant='h5'
+      >
         {name}
       </Typography>
       {brand && (

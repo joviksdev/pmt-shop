@@ -36,7 +36,7 @@ const styles = makeStyles({
   }
 });
 
-const Description = () => {
+const Description = ({ description }) => {
   const classes = styles();
   return (
     <div style={{ marginBottom: '10px', width: '100%' }}>
@@ -48,11 +48,17 @@ const Description = () => {
           Description
         </Typography>
       </div>
-      <div className={`${classes.container} ${classes.content}`}>
-        <Grid container spacing={1}>
-          decription
-        </Grid>
-      </div>
+      {description ? (
+        <div className={`${classes.container} ${classes.content}`}>
+          <Grid container>{description}</Grid>
+        </div>
+      ) : (
+        <div className={`${classes.container} ${classes.content}`}>
+          <Typography variant='body2' className={classes.text}>
+            No description
+          </Typography>
+        </div>
+      )}
     </div>
   );
 };

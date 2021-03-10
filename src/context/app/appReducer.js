@@ -54,32 +54,31 @@ const appReducer = (state, action) => {
     case INCREMENT_CART:
       return {
         ...state,
-        carts: state.carts.map(
-          cart =>
-            cart.id === action.payload.id && {
-              ...cart,
-              quantity: cart.quantity + 1,
-              subTotal: parseInt(cart.subTotal) + parseInt(action.payload.price)
-            }
+        carts: state.carts.map(cart =>
+          cart.id === action.payload.id
+            ? {
+                ...cart,
+                quantity: cart.quantity + 1,
+                subTotal:
+                  parseInt(cart.subTotal) + parseInt(action.payload.price)
+              }
+            : cart
         )
       };
 
     case DECREMENT_CART:
       return {
         ...state,
-        carts: state.carts.map(
-          cart =>
-            cart.id === action.payload.id && {
-              ...cart,
-              quantity: cart.quantity - 1,
-              subTotal: parseInt(cart.subTotal) - parseInt(action.payload.price)
-            }
+        carts: state.carts.map(cart =>
+          cart.id === action.payload.id
+            ? {
+                ...cart,
+                quantity: cart.quantity - 1,
+                subTotal:
+                  parseInt(cart.subTotal) - parseInt(action.payload.price)
+              }
+            : cart
         )
-      };
-
-    case REMOVE_CART:
-      return {
-        ...state
       };
 
     case DISPLAY_ALERT:

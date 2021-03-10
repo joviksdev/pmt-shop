@@ -1,7 +1,7 @@
 import React from 'react';
 import Carousel from '../parser/Carousel';
 import carouselData from '../../data/carousel.json';
-import CategorySidebar from '../category/CategorySidebar';
+import CategorySidebar from '../sidebar/maxCategory/CategorySidebar';
 import { container } from '../../assets/js/styleCss';
 
 // Material-UI/Core
