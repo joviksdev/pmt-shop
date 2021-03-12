@@ -1,9 +1,9 @@
 import React from 'react';
-import mastercard from '../../../../../assets/img/mastercard.svg';
-import visacard from '../../../../../assets/img/visa.svg';
-import verve from '../../../../../assets/img/verve.svg';
-import CustomInput from '../../../../customComponent/CustomInput';
-import CustomCheckbox from '../../../../customComponent/CustomCheckbox';
+import mastercard from '../../../../assets/img/mastercard.svg';
+import visacard from '../../../../assets/img/visa.svg';
+import verve from '../../../../assets/img/verve.svg';
+import CustomInput from '../../../customComponent/CustomInput';
+import CustomCheckbox from '../../../customComponent/CustomCheckbox';
 
 // Material-UI/Core
 import { makeStyles } from '@material-ui/core/styles';
@@ -19,7 +19,7 @@ import {
   primaryColor,
   whiteColor,
   grayColor
-} from '../../../../../assets/js/styleCss';
+} from '../../../../assets/js/styleCss';
 
 const styles = makeStyles({
   container: {

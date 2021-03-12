@@ -7,6 +7,9 @@ import Cart from '../component/views/pages/Cart';
 import RateReview from '../component/views/pages/RateReview';
 import Checkout from '../component/views/pages/Checkout';
 
+// Categories
+import PhoneTable from '../component/layouts/products/categories/phoneTablet';
+
 const path = window.location.pathname;
 
 const appRoute = [
@@ -49,6 +52,11 @@ const appRoute = [
     path: '/checkout/:item',
     name: 'Checkout',
     component: Checkout
+  },
+  {
+    path: '/phone-tablet',
+    name: 'Phone and Tablet',
+    component: PhoneTable
   }
 ];
 

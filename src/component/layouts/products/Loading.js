@@ -4,7 +4,7 @@ import React from 'react';
 import CircularProgress from '@material-ui/core/CircularProgress';
 
 import { makeStyles } from '@material-ui/core/styles';
-import { primaryColor } from '../../../assets/js/styleCss';
+import { primaryColor } from '../../assets/js/styleCss';
 const styles = makeStyles({
   imageWrapper: {
     width: '120px',

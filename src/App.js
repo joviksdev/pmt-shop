@@ -6,7 +6,7 @@ import routes from './routes/routes';
 import MinSidebar from './component/layouts/sidebar/category/MinCategoryWrapper';
 import ToastAlert, {
   setToastAlert
-} from './component/layouts/components/alert/ToastAlert';
+} from './component/layouts/alert/ToastAlert';
 import NotFound from './component/views/pages/NotFound/index.js';
 
 // Material-UI/Core

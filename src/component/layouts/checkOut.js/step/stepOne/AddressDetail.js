@@ -14,7 +14,7 @@ import {
   primaryColor,
   whiteColor,
   grayColor
-} from '../../../../../assets/js/styleCss';
+} from '../../../../assets/js/styleCss';
 import { Hidden } from '@material-ui/core';
 
 const styles = makeStyles({

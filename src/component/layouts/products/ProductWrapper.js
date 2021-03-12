@@ -13,7 +13,7 @@ import {
   defaultBoxShadow,
   text,
   title
-} from '../../../assets/js/styleCss';
+} from '../../assets/js/styleCss';
 
 const ProductItem = React.lazy(() => import('./ProductItem'));
 

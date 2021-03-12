@@ -13,7 +13,7 @@ import {
   whiteColor,
   dangerColor,
   successColor
-} from '../../../assets/js/styleCss';
+} from '../../assets/js/styleCss';
 
 const styles = makeStyles({
   container: {

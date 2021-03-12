@@ -2,7 +2,7 @@ import React from 'react';
 import Header from '../../layouts/header/Header';
 import Footer from '../../layouts/footer/FooterWrapper';
 import ShowcaseWrapper from '../../layouts/showcase/ShowcaseWrapper';
-import ProductWrapper from '../../layouts/components/products/ProductWrapper';
+import ProductWrapper from '../../layouts/products/ProductWrapper';
 import MobileBottomNavbar from '../../layouts/navbar/MobileBottomNavbar';
 
 // Products

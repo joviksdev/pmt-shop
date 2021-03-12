@@ -9,11 +9,7 @@ import Hidden from '@material-ui/core/Hidden';
 import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
 import ContactSupportIcon from '@material-ui/icons/ContactSupport';
 
-import {
-  container,
-  whiteColor,
-  grayColor
-} from '../../../../../assets/js/styleCss';
+import { container, whiteColor, grayColor } from '../../../../assets/js/styleCss';
 
 const styles = makeStyles({
   mainContainer: {
@@ -59,12 +55,12 @@ const styles = makeStyles({
   }
 });
 
-const Header = ({ decrementStep }) => {
+const Header = () => {
   const classes = styles();
 
   // Handler to move back
   const navigateBack = () => {
-    decrementStep();
+    window.history.back();
   };
 
   return (

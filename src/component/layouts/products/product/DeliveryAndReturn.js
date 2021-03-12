@@ -15,7 +15,7 @@ import {
   grayColor,
   whiteColor,
   primaryColor
-} from '../../../../assets/js/styleCss';
+} from '../../../assets/js/styleCss';
 
 const styles = makeStyles({
   gridContainer: {

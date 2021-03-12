@@ -7,7 +7,7 @@ import {
   primaryColor,
   whiteColor,
   container
-} from '../../../../../assets/js/styleCss';
+} from '../../../../assets/js/styleCss';
 
 const styles = makeStyles({
   container: {

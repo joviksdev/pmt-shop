@@ -1,11 +1,11 @@
 import React, { useContext, useEffect, useState, Suspense } from 'react';
-import AppContext from '../../../../../context/app/appContext';
+import AppContext from '../../../../context/app/appContext';
 import ProductDetails from './ProductDetails';
 import DeliveryDetails from './DeliveryAndReturn';
 import Description from './Description';
 import CustomerFeedback from './customerFeedback';
 
-import products from '../../../../data/products/products';
+import products from '../../../data/products/products';
 import Loading from '../Loading';
 
 // Material Ui/Core
@@ -16,7 +16,7 @@ import {
   container,
   whiteColor,
   grayColor,
-} from '../../../../assets/js/styleCss';
+} from '../../../assets/js/styleCss';
 // import ProductImage from './ProductImage';
 const ProductImage = React.lazy(() => import('./ProductImage'));
 

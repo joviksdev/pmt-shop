@@ -14,7 +14,7 @@ import Looks5Icon from '@material-ui/icons/Looks5';
 import StarRateIcon from '@material-ui/icons/StarRate';
 import { makeStyles } from '@material-ui/core';
 
-import { primaryColor } from '../../../../../assets/js/styleCss'
+import { primaryColor } from '../../../../assets/js/styleCss'
 
 const styles = makeStyles({
   list: {
