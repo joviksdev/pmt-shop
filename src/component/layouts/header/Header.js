@@ -3,7 +3,7 @@ import AppContext from '../../../context/app/appContext';
 import { Link } from 'react-router-dom';
 import cx from 'classnames';
 import logo from '../../assets/img/logo.png';
-import Search from '../components/search/Search';
+import Search from '../search/Search';
 
 // @material-ul/core
 

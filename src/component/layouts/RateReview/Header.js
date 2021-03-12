@@ -7,7 +7,7 @@ import { makeStyles } from '@material-ui/core/styles';
 // Material-UI/Icon
 import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
 
-import { container, whiteColor } from '../../../assets/js/styleCss';
+import { container, whiteColor } from '../../assets/js/styleCss';
 
 const styles = makeStyles({
   mainContainer: {

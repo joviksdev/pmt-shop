@@ -1,5 +1,5 @@
 import React from 'react';
-import ProfileWrapper from '../../layouts/components/profile/ProfileWrapper';
+import ProfileWrapper from '../../layouts/profile/ProfileWrapper';
 
 const Profile = () => {
   return (

@@ -1,5 +1,5 @@
 import React from 'react';
-import CustomInput from '../../customComponent/CustomInput';
+import CustomInput from '../customComponent/CustomInput';
 
 // Material-UI/Core
 import { makeStyles } from '@material-ui/core/styles';
@@ -11,7 +11,7 @@ import {
   primaryColor,
   whiteColor,
   grayColor
-} from '../../../assets/js/styleCss';
+} from '../../assets/js/styleCss';
 
 const styles = makeStyles({
   container: {

@@ -14,7 +14,7 @@ import {
   primaryColor,
   whiteColor,
   grayColor
-} from '../../../assets/js/styleCss';
+} from '../../assets/js/styleCss';
 
 const styles = makeStyles({
   container: {

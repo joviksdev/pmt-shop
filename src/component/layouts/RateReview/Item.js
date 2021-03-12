@@ -1,11 +1,11 @@
 import React from 'react';
-import img from '../../../assets/img/products/headset.png';
+import img from '../../assets/img/products/headset.png';
 
 // Material-UI/Core
 import Grid from '@material-ui/core/Grid';
 import { makeStyles } from '@material-ui/core/styles';
 
-import { container, whiteColor } from '../../../assets/js/styleCss';
+import { container, whiteColor } from '../../assets/js/styleCss';
 
 const styles = makeStyles({
   container: {

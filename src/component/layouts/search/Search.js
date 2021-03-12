@@ -1,5 +1,5 @@
 import React from 'react';
-import { primaryColor } from '../../../assets/js/styleCss';
+import { primaryColor } from '../../assets/js/styleCss';
 
 // Material-UI/Core
 import TextField from '@material-ui/core/TextField';

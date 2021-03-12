@@ -14,7 +14,7 @@ const path = window.location.pathname;
 
 const appRoute = [
   {
-    path: `${path === '/' && '/'}`,
+    path: '/',
     name: 'Home',
     component: Index
   },

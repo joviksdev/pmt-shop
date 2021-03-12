@@ -1,5 +1,5 @@
 import React from 'react';
-import Wrapper from '../../layouts/components/RateReview/Wrapper';
+import Wrapper from '../../layouts/RateReview/Wrapper';
 
 const RateReview = () => {
   return (
