@@ -1,12 +1,12 @@
 import React, { Suspense, useContext } from 'react';
-import AppContext from '../../../../context/app/appContext';
+import AppContext from '../../../context/app/appContext';
 import Spinner from '../spinner/Spinner';
 
 // Material-UI/Core
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 
-import { grayColor, container, whiteColor } from '../../../assets/js/styleCss';
+import { grayColor, container, whiteColor } from '../../assets/js/styleCss';
 
 const CartItem = React.lazy(() => import('./CartItem'));
 

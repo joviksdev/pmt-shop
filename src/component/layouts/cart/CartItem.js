@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
-import AppContext from '../../../../context/app/appContext';
+import AppContext from '../../../context/app/appContext';
 import EmptyCart from './EmptyCart';
 
 // Material-UI/Core
@@ -21,7 +21,7 @@ import {
   grayColor,
   primaryColor,
   dangerColor
-} from '../../../assets/js/styleCss';
+} from '../../assets/js/styleCss';
 
 const styles = makeStyles({
   container: {
@@ -172,12 +172,14 @@ const CartItem = props => {
                   .reduce((total, value) => total + value, 0)}
               </span>
             </Typography>
-            <Button
-              className={classes.btnLink}
-              style={{ marginBottom: '10px' }}
-            >
-              <Link to='/checkout/item'>check out</Link>
-            </Button>
+            <Link to='/checkout/item'>
+              <Button
+                className={classes.btnLink}
+                style={{ marginBottom: '10px' }}
+              >
+                check out
+              </Button>
+            </Link>
             {carts.map((cart, key) => (
               <div key={key} className={classes.container}>
                 <Grid container>

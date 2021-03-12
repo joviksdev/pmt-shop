@@ -7,7 +7,7 @@ import Typography from '@material-ui/core/Typography';
 
 // Material-UI/icon
 import ShoppingCartOutlinedIcon from '@material-ui/icons/ShoppingCartOutlined';
-import { grayColor, container } from '../../../assets/js/styleCss';
+import { grayColor, container } from '../../assets/js/styleCss';
 
 const styles = makeStyles({
   item: {
