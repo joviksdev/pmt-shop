@@ -51,7 +51,8 @@ const headerStyle = theme => ({
   menuList: {
     display: 'flex',
     alignItems: 'center',
-    padding: '0 !important'
+    padding: '0 !important',
+    border: 'none'
   },
   menuLink: {
     ...link,

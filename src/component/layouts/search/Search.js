@@ -48,7 +48,6 @@ const Search = () => {
       <form className={classes.searchForm} noValidate autoComplete='off'>
         <TextField
           className={classes.textField}
-          id='outlined-basic'
           variant='outlined'
           placeholder={'Search for products or brands'}
           InputProps={{

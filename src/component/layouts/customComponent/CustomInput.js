@@ -20,7 +20,7 @@ const useStyles = makeStyles({
       borderColor: `${primaryColor} !important`
     },
     '& .MuiOutlinedInput-input': {
-      padding: '14px'
+      padding: '8px'
     },
     '& .MuiInputLabel-formControl': {
       top: '0px'

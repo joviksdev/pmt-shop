@@ -26,6 +26,7 @@ const styles = makeStyles({
     justifyContent: 'center',
     '@media (min-width: 760px)': {
       flexDirection: 'row',
+      alignItems: 'center',
       justifyContent: 'space-between'
     }
   },

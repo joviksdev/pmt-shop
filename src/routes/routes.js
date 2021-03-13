@@ -10,8 +10,6 @@ import Checkout from '../component/views/pages/Checkout';
 // Categories
 import PhoneTable from '../component/layouts/products/categories/phoneTablet';
 
-const path = window.location.pathname;
-
 const appRoute = [
   {
     path: '/',
