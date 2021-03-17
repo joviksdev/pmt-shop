@@ -10,7 +10,7 @@ app.get('/*', function(req, res) {
     res.sendFile(path.join(__dirname + '/build/index.html'));
 });
 
-const port = process.env.PORT || 5000;
+const port = process.env.PORT || 5104;
 const hostname = process.env.HOST || "127.0.0.1";
 app.listen(port, hostname, () => {
     console.log(`ERP-Ecommerce Server running at http://${hostname}:${port}/`);
