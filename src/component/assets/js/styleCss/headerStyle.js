@@ -56,7 +56,7 @@ const headerStyle = theme => ({
   },
   menuLink: {
     ...link,
-    padding: '0px',
+    padding: '10px',
     minHeight: '0px',
     color: grayColor[6],
     fontSize: '14px',
@@ -387,6 +387,9 @@ const headerStyle = theme => ({
     boxShadow: '0px 2px 6px rgba(0, 0, 0, 0.1)',
     borderTopLeftRadius: '0px',
     borderTopRightRadius: '0px'
+  },
+  link: {
+    ...link
   }
 });
 

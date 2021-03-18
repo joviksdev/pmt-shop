@@ -1,16 +1,16 @@
 import React from 'react';
-import Header from '../../layouts/header/Header';
-import Footer from '../../layouts/footer/FooterWrapper';
-import ShowcaseWrapper from '../../layouts/showcase/ShowcaseWrapper';
-import ProductWrapper from '../../layouts/products/ProductWrapper';
-import MobileBottomNavbar from '../../layouts/navbar/MobileBottomNavbar';
+import Header from '../layouts/header/Header';
+import Footer from '../layouts/footer/FooterWrapper';
+import ShowcaseWrapper from '../layouts/showcase/ShowcaseWrapper';
+import ProductWrapper from '../layouts/products/ProductWrapper';
+import MobileBottomNavbar from '../layouts/navbar/MobileBottomNavbar';
 
 // Products
 import {
   trendingProducts,
   newArrival,
   recommendedProduct
-} from '../../data/products/products';
+} from '../data/products/products';
 
 // Material-UI/Core
 import { makeStyles } from '@material-ui/core/styles';

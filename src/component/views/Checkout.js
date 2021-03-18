@@ -1,5 +1,5 @@
 import React from 'react';
-import CheckoutWrapper from '../../layouts/checkOut.js';
+import CheckoutWrapper from '../layouts/checkOut.js';
 
 const Checkout = () => {
   return (

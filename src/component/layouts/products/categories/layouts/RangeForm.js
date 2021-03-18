@@ -1,6 +1,6 @@
 import React from 'react';
 
-import CustomInput from '../../../../../customComponent/CustomInput';
+import CustomInput from '../../../customComponent/CustomInput';
 
 // Material-UI/Core
 import Grid from '@material-ui/core/Grid';
@@ -10,7 +10,7 @@ import { makeStyles } from '@material-ui/core/styles';
 // MAterial-UI/Icon
 import SendIcon from '@material-ui/icons/Send';
 
-import { grayColor, primaryColor } from '../../../../../../assets/js/styleCss';
+import { grayColor, primaryColor } from '../../../../assets/js/styleCss';
 
 const styles = makeStyles({
   submitBtn: {

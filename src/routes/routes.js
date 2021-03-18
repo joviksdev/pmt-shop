@@ -1,14 +1,15 @@
-import Index from '../component/views/pages/index';
-import Login from '../component/views/pages/auth/Login';
-import Register from '../component/views/pages/auth/Register';
-import Profile from '../component/views/pages/Profile';
-import Product from '../component/views/pages/Product';
-import Cart from '../component/views/pages/Cart';
-import RateReview from '../component/views/pages/RateReview';
-import Checkout from '../component/views/pages/Checkout';
+import Index from '../component/views/index';
+import Login from '../component/views/auth/Login';
+import Register from '../component/views/auth/Register';
+import Profile from '../component/views/Profile';
+import Product from '../component/views/Product';
+import Cart from '../component/views/Cart';
+import RateReview from '../component/views/RateReview';
+import Checkout from '../component/views/Checkout';
 
 // Categories
-import PhoneTable from '../component/layouts/products/categories/phoneTablet';
+import AndroidPhone from '../component/views/categoryList/adroidPhone';
+import Laptops from '../component/views/categoryList/laptops';
 
 const appRoute = [
   {
@@ -52,9 +53,14 @@ const appRoute = [
     component: Checkout
   },
   {
-    path: '/phone-tablet',
-    name: 'Phone and Tablet',
-    component: PhoneTable
+    path: '/android-phones',
+    name: 'Android Phones',
+    component: AndroidPhone
+  },
+  {
+    path: '/laptops',
+    name: 'Laptops',
+    component: Laptops
   }
 ];
 

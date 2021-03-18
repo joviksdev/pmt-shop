@@ -15,6 +15,7 @@ import Popper from '@material-ui/core/Popper';
 import MenuItem from '@material-ui/core/MenuItem';
 import MenuList from '@material-ui/core/MenuList';
 import Typography from '@material-ui/core/Typography';
+import ClickAwayListener from '@material-ui/core/ClickAwayListener';
 
 //Material-Ui/Icon
 import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
@@ -34,14 +35,16 @@ const Header = () => {
   const appContext = useContext(AppContext);
   const { toggleSideBar, carts } = appContext;
 
-  const [isDisplay, setIsDisplay] = useState(false);
-  const [open, setOpen] = useState(null);
+  const [anchorEl, setAnchorEl] = useState(null);
+
   const toggleMenu = e => {
-    setIsDisplay(!isDisplay);
-    setOpen(open === null ? e.currentTarget : null);
+    const { currentTarget } = e;
+    setAnchorEl(anchorEl ? null : currentTarget);
   };
 
-  const rotateSvg = cx({ [classes.rotateSvg]: isDisplay });
+  const closeMenu = () => setAnchorEl(null);
+
+  const rotateSvg = cx({ [classes.rotateSvg]: Boolean(anchorEl) });
 
   const [isHover, setIsHover] = useState(false);
 
@@ -65,7 +68,7 @@ const Header = () => {
                 />
               </Hidden>
             </div>
-            <Link to='/'>
+            <Link className={classes.link} to='/'>
               <Typography
                 className={classes.headerText}
                 variant='h5'
@@ -103,7 +106,7 @@ const Header = () => {
                 </MenuItem>
                 <Hidden implementation='css' smDown>
                   <MenuItem className={classes.menuLinkColumn}>
-                    <Link to='/'>
+                    <Link className={classes.link} to='/'>
                       <AssignmentOutlinedIcon />
 
                       <span>Whitelist</span>
@@ -112,7 +115,7 @@ const Header = () => {
                 </Hidden>
                 <Hidden implementation='css' smDown>
                   <MenuItem className={classes.menuLinkColumn}>
-                    <Link to='/'>
+                    <Link className={classes.link} to='/'>
                       <HelpOutlineOutlinedIcon />
                       <span>Help</span>
                     </Link>
@@ -121,50 +124,63 @@ const Header = () => {
                 <MenuItem className={classes.menuLink} onClick={toggleMenu}>
                   <PersonIcon />
                   <div style={{ display: 'flex', alignItems: 'center' }}>
-                    Login{' '}
+                    Login
                     <ArrowDropDownIcon
                       className={`${classes.iconSvg} ${rotateSvg}`}
                       style={{ marginLeft: '5px' }}
                     />
                   </div>
                 </MenuItem>
+
                 <Popper
                   style={{ zIndex: '10000' }}
-                  open={Boolean(isDisplay)}
-                  anchorEl={open}
+                  open={Boolean(anchorEl)}
+                  anchorEl={anchorEl}
                   transition
                   disablePortal
                   placement='bottom'
                 >
                   {({ TransitionProps }) => (
-                    <Grow
-                      {...TransitionProps}
-                      style={{ transformOrigin: '0 0 0' }}
-                    >
-                      <Paper
-                        style={{
-                          boxShadow: '0px 0px 5px rgba(0, 0, 0, 0.3)'
-                        }}
-                        className={classes.dropdown}
+                    <ClickAwayListener onClickAway={closeMenu}>
+                      <Grow
+                        {...TransitionProps}
+                        style={{ transformOrigin: '0 0 0' }}
                       >
-                        <MenuList role='menu' className={classes.dropdownMenu}>
-                          <MenuItem
-                            style={{ textAlign: 'center' }}
-                            onClick={toggleMenu}
-                            className={classes.dropdownItem}
+                        <Paper
+                          style={{
+                            boxShadow: '0px 0px 5px rgba(0, 0, 0, 0.3)'
+                          }}
+                          className={classes.dropdown}
+                        >
+                          <MenuList
+                            role='menu'
+                            className={classes.dropdownMenu}
                           >
-                            <Link to='/auth/login'>login</Link>
-                          </MenuItem>
-                          <span className={classes.option}>or</span>
-                          <MenuItem
-                            onClick={toggleMenu}
-                            className={classes.dropdownItem}
-                          >
-                            <Link to='/auth/register'>create an account</Link>
-                          </MenuItem>
-                        </MenuList>
-                      </Paper>
-                    </Grow>
+                            <MenuItem
+                              style={{ textAlign: 'center' }}
+                              onClick={toggleMenu}
+                              className={classes.dropdownItem}
+                            >
+                              <Link className={classes.link} to='/auth/login'>
+                                login
+                              </Link>
+                            </MenuItem>
+                            <span className={classes.option}>or</span>
+                            <MenuItem
+                              onClick={toggleMenu}
+                              className={classes.dropdownItem}
+                            >
+                              <Link
+                                className={classes.link}
+                                to='/auth/register'
+                              >
+                                create an account
+                              </Link>
+                            </MenuItem>
+                          </MenuList>
+                        </Paper>
+                      </Grow>
+                    </ClickAwayListener>
                   )}
                 </Popper>
               </MenuList>

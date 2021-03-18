@@ -1,16 +1,16 @@
 import React, { useState } from 'react';
-import Header from '../../../header/Header';
-import MobileBottomNavbar from '../../../navbar/MobileBottomNavbar';
-import SubHeader from '../layouts/SubHeader';
+import Header from '../../../layouts/header/Header';
+import MobileBottomNavbar from '../../../layouts/navbar/MobileBottomNavbar';
+import SubHeader from '../../../layouts/products/categories/layouts/SubHeader';
 import MobileFilter from './MobileSidebar';
-import Product from '../layouts/product/Product';
-import Footer from '../../../footer/FooterWrapper';
+import Product from '../../../layouts/products/categories/layouts/product/Product';
+import Footer from '../../../layouts/footer/FooterWrapper';
 import Sidebar from './Sidebar';
 
 // Material-UI/Core
 import Grid from '@material-ui/core/Grid';
 import { makeStyles } from '@material-ui/core/styles';
-import { container } from '../../../../assets/js/styleCss';
+import { container } from '../../../assets/js/styleCss';
 
 const styles = makeStyles({
   container: {
@@ -38,10 +38,7 @@ const Wrapper = () => {
   return (
     <div>
       <Header />
-      <SubHeader
-        headerText={'Phone and Tablet'}
-        displayFilter={displayFilter}
-      />
+      <SubHeader headerText={'Adroid Phones'} displayFilter={displayFilter} />
       <MobileFilter isDisplayFilter={isDisplayFilter} hideFilter={hideFilter} />
       <MobileBottomNavbar />
       <div className={classes.container}>

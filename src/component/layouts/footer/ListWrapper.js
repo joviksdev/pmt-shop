@@ -20,7 +20,7 @@ const styles = makeStyles({
     textTransform: 'uppercase',
     fontWeight: 'bold',
     color: grayColor[6],
-    fontSize: '18px'
+    fontSize: '14px'
   },
   list: {
     padding: '0px',

@@ -1,13 +1,13 @@
 import React from 'react';
-import Wrapper from './Wrapper';
+import RadioGroup from '../../../layouts/products/categories/layouts/RadioWrapper';
 
 // Form
-import RangeForm from './RangeForm';
-import InlineForm from './InlineForm';
+import RangeForm from '../../../layouts/products/categories/layouts/RangeForm';
+import InlineForm from '../../../layouts/products/categories/layouts/InlineForm';
 
 // MAterial-UI/Core
 import { makeStyles } from '@material-ui/core/styles';
-import { whiteColor } from '../../../../../../assets/js/styleCss';
+import { whiteColor } from '../../../assets/js/styleCss';
 
 const styles = makeStyles({
   container: {
@@ -17,7 +17,7 @@ const styles = makeStyles({
   }
 });
 
-const index = () => {
+const Sidebar = () => {
   const classes = styles();
 
   // Price
@@ -57,24 +57,24 @@ const index = () => {
 
   return (
     <div className={classes.container}>
-      <Wrapper
+      <RadioGroup
         isBorderBottom={true}
         headerText={'Price'}
         lists={priceLists}
         Component={RangeForm}
       />
-      <Wrapper
+      <RadioGroup
         isBorderBottom={true}
         headerText={'Brand'}
         lists={brandLists}
         Component={InlineForm}
       />
-      <Wrapper
+      <RadioGroup
         isBorderBottom={true}
         headerText={'Screen Size'}
         lists={screenSizeList}
       />
-      <Wrapper
+      <RadioGroup
         isBorderBottom={false}
         headerText={'Ram Size'}
         lists={ramSizes}
@@ -83,4 +83,4 @@ const index = () => {
   );
 };
 
-export default index;
+export default Sidebar;

@@ -20,7 +20,8 @@ import {
   whiteColor,
   grayColor,
   primaryColor,
-  dangerColor
+  dangerColor,
+  link
 } from '../../assets/js/styleCss';
 
 const styles = makeStyles({
@@ -82,6 +83,7 @@ const styles = makeStyles({
     alignItems: 'center'
   },
   link: {
+    ...link,
     color: grayColor[2],
     textDecoration: 'none',
     textTransform: 'capitalize',
@@ -172,7 +174,7 @@ const CartItem = props => {
                   .reduce((total, value) => total + value, 0)}
               </span>
             </Typography>
-            <Link to='/checkout/item'>
+            <Link className={classes.link} to='/checkout/item'>
               <Button
                 className={classes.btnLink}
                 style={{ marginBottom: '10px' }}

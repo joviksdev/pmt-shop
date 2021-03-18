@@ -1,8 +1,7 @@
 import React from 'react';
-import Carousel from '../parser/Carousel';
-import carouselData from '../../data/carousel.json';
 import CategorySidebar from '../sidebar/maxCategory/CategorySidebar';
 import { container } from '../../assets/js/styleCss';
+import Slider from '../carousel/Slider';
 
 // Material-UI/Core
 import { makeStyles } from '@material-ui/core/styles';
@@ -18,7 +17,15 @@ const useStyles = makeStyles({
     display: 'flex',
     height: '100%'
   },
-  carouselWrapper: {}
+  carouselWrapper: {
+    height: '30vh',
+    '@media (min-width: 576px)': {
+      height: '50vh'
+    },
+    '@media (min-width: 960px)': {
+      height: 'initial'
+    }
+  }
 });
 
 const ShowcaseWrapper = () => {
@@ -39,7 +46,7 @@ const ShowcaseWrapper = () => {
           md={9}
           lg={8}
         >
-          <Carousel data={carouselData} />
+          <Slider />
         </Grid>
         <Grid item lg={2}>
           <Hidden mdDown implementation='css'>

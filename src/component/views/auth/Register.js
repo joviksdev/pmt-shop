@@ -1,18 +1,9 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import CustomInput from '../../../layouts/customComponent/CustomInput';
+import CustomInput from '../../layouts/customComponent/CustomInput';
 import cx from 'classnames';
-import Authbar from '../../../layouts/header/Authbar';
-
-import {
-  btn,
-  container,
-  grayColor,
-  primaryColor,
-  whiteColor,
-  blueColor,
-  defaultBoxShadow
-} from '../../../assets/js/styleCss';
+import Authbar from '../../layouts/header/Authbar';
+import styles from './styles';
 
 // Material-UI/Core
 import { makeStyles } from '@material-ui/core/styles';
@@ -22,105 +13,15 @@ import { Typography } from '@material-ui/core';
 import InputAdornment from '@material-ui/core/InputAdornment';
 
 // Material-UI/Icon
-import Email from '@material-ui/icons/Email';
-import LockIcon from '@material-ui/icons/Lock';
 import FacebookIcon from '@material-ui/icons/Facebook';
 import TwitterIcon from '@material-ui/icons/Twitter';
 import VisibilityIcon from '@material-ui/icons/Visibility';
-import PersonIcon from '@material-ui/icons/Person';
-import PhoneIcon from '@material-ui/icons/Phone';
+import VisibilityOffIcon from '@material-ui/icons/VisibilityOff';
 
-const styles = makeStyles({
-  container: {
-    ...container,
-    flex: '1',
-    display: 'flex',
-    alignContent: 'center',
-    alignItems: 'center',
-    marginTop: '15px',
-    marginBottom: '15px'
-  },
-  gridItem: {
-    margin: 'auto'
-  },
-
-  cardHidden: {
-    opacity: '0',
-    transform: 'translate3d(0, -60px, 0)'
-  },
-  showcase: {
-    backgroundColor: primaryColor
-  },
-  title: {
-    textAlign: 'center',
-    color: primaryColor,
-    marginBottom: '20px',
-    textTransform: 'uppercase'
-  },
-  text: {
-    textAlign: 'center',
-    margin: '15px 0px',
-    color: grayColor[6],
-    '& span': {
-      color: primaryColor
-    }
-  },
-  btn: {
-    ...btn,
-    color: whiteColor,
-    backgroundColor: primaryColor,
-    width: '100%'
-  },
-  option: {
-    textAlign: 'center',
-    width: '70%',
-    margin: '20px auto',
-    color: grayColor[6],
-    position: 'relative',
-    '&:before': {
-      content: '""',
-      position: 'absolute',
-      left: '0px',
-      top: '50%',
-      transform: 'translateY(-50%)',
-      width: '45%',
-      height: '2px',
-      backgroundColor: grayColor[9]
-    },
-    '&:after': {
-      content: '""',
-      position: 'absolute',
-      right: '0px',
-      top: '50%',
-      transform: 'translateY(-50%)',
-      width: '45%',
-      height: '2px',
-      backgroundColor: grayColor[9]
-    }
-  },
-  link: {
-    color: primaryColor,
-    textDecoration: 'none',
-    listStyle: 'none'
-  },
-  svgIcon: {
-    minWidth: 'initial !important',
-    padding: '8px',
-    borderRadius: '50%',
-    margin: '0 15px',
-    color: primaryColor,
-    ...defaultBoxShadow
-  },
-  blueColor: {
-    color: blueColor
-  },
-  skyblue: {
-    color: 'skyblue'
-  }
-});
+const useStyles = makeStyles(styles);
 
 const Register = () => {
-  const classes = styles();
+  const classes = useStyles();
 
   // Target Pasword Input
   const [isDisplayPassword, setIsDisplayPassword] = useState(false);
@@ -135,7 +36,7 @@ const Register = () => {
       <Authbar />
       <div className={classes.container}>
         <Grid container className={classes.gridContainer}>
-          <Grid className={classes.gridItem} item xs={11} sm={8} md={6}>
+          <Grid className={classes.gridItem} item xs={11} sm={8} md={6} lg={5}>
             <Typography className={classes.title} variant='h6'>
               Register
             </Typography>
@@ -145,47 +46,37 @@ const Register = () => {
                 label='First name'
                 type='text'
                 fullWidth={true}
-                startAdornment={
-                  <InputAdornment position='start'>
-                    <PersonIcon />
-                  </InputAdornment>
-                }
               />
               <CustomInput
                 style={{ marginBottom: '10px' }}
                 label='Last name'
                 type='text'
                 fullWidth={true}
-                startAdornment={
-                  <InputAdornment position='start'>
-                    <PersonIcon />
-                  </InputAdornment>
-                }
               />
               <CustomInput
                 style={{ marginBottom: '10px' }}
                 label='Email'
                 type='email'
                 fullWidth={true}
-                startAdornment={
-                  <InputAdornment position='start'>
-                    <Email />
-                  </InputAdornment>
-                }
               />
               <CustomInput
                 style={{ marginBottom: '10px' }}
                 label='Password'
                 type={isDisplayPassword ? 'text' : 'password'}
                 fullWidth={true}
-                startAdornment={
-                  <InputAdornment position='start'>
-                    <LockIcon />
-                  </InputAdornment>
-                }
                 endAdornment={
                   <InputAdornment position='end'>
-                    <VisibilityIcon onClick={() => togglePassword()} />
+                    {isDisplayPassword ? (
+                      <VisibilityOffIcon
+                        className={classes.visibilityIcon}
+                        onClick={() => togglePassword()}
+                      />
+                    ) : (
+                      <VisibilityIcon
+                        className={classes.visibilityIcon}
+                        onClick={() => togglePassword()}
+                      />
+                    )}
                   </InputAdornment>
                 }
               />
@@ -194,11 +85,6 @@ const Register = () => {
                 label='Phone number (optional)'
                 type='text'
                 fullWidth={true}
-                startAdornment={
-                  <InputAdornment position='start'>
-                    <PhoneIcon />
-                  </InputAdornment>
-                }
               />
               <Button className={classes.btn}>register</Button>
             </form>

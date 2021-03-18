@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import logo from '../../../assets/img/logo.png';
+import logo from '../../assets/img/logo.png';
 
 // Material-UI/Core
 import Typography from '@material-ui/core/Typography';
@@ -16,7 +16,7 @@ import {
   whiteColor,
   grayColor,
   primaryColor
-} from '../../../assets/js/styleCss';
+} from '../../assets/js/styleCss';
 
 const styles = makeStyles({
   mainContainer: {

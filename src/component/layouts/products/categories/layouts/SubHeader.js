@@ -41,12 +41,13 @@ const styles = makeStyles({
 
 const SubHeader = props => {
   const classes = styles();
+  const { headerText } = props
   return (
     <div className={classes.main}>
       <div className={classes.container}>
         <div className={classes.displayFlex}>
           <Typography className={classes.header} variant='h6'>
-            Phone and Tablet
+            {headerText}
           </Typography>
           <SortFilter {...props} />
         </div>

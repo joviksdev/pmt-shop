@@ -7,7 +7,8 @@ import {
   primaryColor,
   whiteColor,
   defaultBoxShadow,
-  text
+  text,
+  link
 } from '../../assets/js/styleCss';
 import CardContent from '@material-ui/core/CardContent';
 import Card from '@material-ui/core/Card';
@@ -70,6 +71,9 @@ const styles = makeStyles({
   },
   price: {
     fontWeight: 'bold'
+  },
+  link: {
+    ...link
   }
 });
 
@@ -77,7 +81,7 @@ const ProductItem = props => {
   const { id, img, discount, name, price } = props.product;
   const classes = styles();
   return (
-    <Link to={`/item/${name}/${id}`}>
+    <Link className={classes.link} to={`/item/${name}/${id}`}>
       <Card className={classes.card}>
         <CardContent className={classes.cardContent}>
           <Typography

@@ -7,7 +7,7 @@ import Grid from '@material-ui/core/Grid';
 
 // Material-UI/Icon
 import AppleIcon from '@material-ui/icons/Apple';
-import AndroidIcon from '@material-ui/icons/Android';
+import AdbIcon from '@material-ui/icons/Adb';
 import { defaultBoxShadow, grayColor } from '../../assets/js/styleCss';
 
 const styles = makeStyles({
@@ -15,7 +15,7 @@ const styles = makeStyles({
     marginTop: '20px',
     '@media (min-width: 760px)': {
       marginTop: '0px',
-      padding: '8px'
+      padding: '5px'
     }
   },
   gridItem: {
@@ -28,19 +28,19 @@ const styles = makeStyles({
     ...defaultBoxShadow
   },
   icon: {
-    fontSize: '36px',
+    fontSize: '28px',
     marginRight: '5px'
   },
   headerText: {
     fontWeight: 'bold',
-    fontSize: '18px',
+    fontSize: '14px',
     textTransform: 'uppercase',
     marginBottom: '5px',
     color: grayColor[6]
   },
   text: {
     marginBottom: '0px',
-    fontSize: '12px'
+    fontSize: '10px'
   }
 });
 
@@ -58,11 +58,8 @@ const DownlaodApp = () => {
               <AppleIcon className={classes.icon} />
             </div>
             <div>
-              <Typography className={classes.text} variant='body2' paragraph>
-                Download on
-              </Typography>
               <Typography
-                style={{ fontWeight: 'bold', fontSize: '16px' }}
+                style={{ fontWeight: 'bold', fontSize: '14px' }}
                 variant='h6'
               >
                 App Store
@@ -73,14 +70,11 @@ const DownlaodApp = () => {
         <Grid xs={6} item>
           <div className={classes.gridItem}>
             <div>
-              <AndroidIcon className={classes.icon} />
+              <AdbIcon className={classes.icon} />
             </div>
             <div>
-              <Typography className={classes.text} variant='body2' paragraph>
-                Download on
-              </Typography>
               <Typography
-                style={{ fontWeight: 'bold', fontSize: '16px' }}
+                style={{ fontWeight: 'bold', fontSize: '14px' }}
                 variant='h6'
               >
                 Google play

@@ -14,7 +14,7 @@ import {
   grayColor,
   primaryColor,
   whiteColor
-} from '../../../../../../assets/js/styleCss';
+} from '../../../assets/js/styleCss';
 
 const styles = makeStyles({
   drawer: {

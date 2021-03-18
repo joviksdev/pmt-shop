@@ -12,11 +12,7 @@ import Loading from '../Loading';
 import { makeStyles } from '@material-ui/core/styles';
 import { Grid } from '@material-ui/core';
 
-import {
-  container,
-  whiteColor,
-  grayColor,
-} from '../../../assets/js/styleCss';
+import { container, whiteColor, grayColor } from '../../../assets/js/styleCss';
 // import ProductImage from './ProductImage';
 const ProductImage = React.lazy(() => import('./ProductImage'));
 
@@ -43,7 +39,7 @@ const styles = makeStyles({
   },
   bgWhite: {
     backgroundColor: whiteColor
-  },
+  }
 });
 
 const ProductView = props => {
@@ -94,6 +90,7 @@ const ProductView = props => {
                       name={item.name}
                       brand={item.brand}
                       price={item.price}
+                      description={item.description}
                     />
                   </Grid>
                 </Grid>
@@ -103,7 +100,7 @@ const ProductView = props => {
               </Grid>
             </Grid>
           </div>
-          <Description />
+          <Description description={item.description} />
           <CustomerFeedback />
         </>
       ) : (
