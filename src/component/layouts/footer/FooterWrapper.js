@@ -1,21 +1,15 @@
 import React from 'react';
 import NewsLetterSubcription from './NewsLetterSubcription';
 import FooterMain from './FooterMain';
+import styles from './styles';
 
 // Material-UI/Core
 import { makeStyles } from '@material-ui/core/styles';
 
-const styles = makeStyles({
-  container: {
-    marginBottom: '50px',
-    '@media (min-width: 760px)': {
-      marginBottom: '0px'
-    }
-  }
-});
+const useStyles = makeStyles(styles);
 
 const FooterWrapper = () => {
-  const classes = styles();
+  const classes = useStyles();
   return (
     <div className={classes.container}>
       <NewsLetterSubcription />

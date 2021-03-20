@@ -4,7 +4,6 @@ import About from './About';
 import PaymentMethod from './PaymentMethod';
 import Partnership from './Partnership';
 import Copyright from './Copyright';
-import SocialMediaLink from './SocialMediaLink';
 
 // Material-UI/Core
 import Grid from '@material-ui/core/Grid';
@@ -31,7 +30,6 @@ const FooterMain = () => {
       <Grid container className={classes.gridContainer}>
         <Grid item xs={12} md={6} lg={4}>
           <DownlaodApp />
-          <SocialMediaLink />
         </Grid>
         <Grid item xs={12} md={6} lg={3}>
           <About />

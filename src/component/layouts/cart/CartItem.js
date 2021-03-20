@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import AppContext from '../../../context/app/appContext';
 import EmptyCart from './EmptyCart';
+import numberWithCommas from '../../utils/numberWithCommas';
 
 // Material-UI/Core
 import Grid from '@material-ui/core/Grid';
@@ -80,7 +81,11 @@ const styles = makeStyles({
   },
   incementDecrementWrapper: {
     display: 'flex',
-    alignItems: 'center'
+    alignItems: 'center',
+    marginBottom: '0px',
+    '@media (min-width: 600px)': {
+      marginBottom: '10px'
+    }
   },
   link: {
     ...link,
@@ -169,9 +174,9 @@ const CartItem = props => {
               Total{' '}
               <span>
                 &#8358; {'  '}
-                {carts
+                {numberWithCommas(carts
                   .map(cart => parseInt(cart.subTotal))
-                  .reduce((total, value) => total + value, 0)}
+                  .reduce((total, value) => total + value, 0))}
               </span>
             </Typography>
             <Link className={classes.link} to='/checkout/item'>
@@ -190,7 +195,7 @@ const CartItem = props => {
                       <img src={cart.img} alt='cart' />
                     </div>
                   </Grid>
-                  <Grid className={classes.gridItem} item xs={8} sm={6} md={6}>
+                  <Grid className={classes.gridItem} item xs={8} sm={5} md={6}>
                     <Link
                       className={classes.link}
                       to={`/item/${cart.name}/${cart.id}`}
@@ -213,10 +218,10 @@ const CartItem = props => {
                         `${cart.description.slice(0, 50)}...`}
                     </Typography>
                     <Typography color='textSecondary'>
-                      &#8358; {'  '} {cart.price}
+                      &#8358; {'  '} {numberWithCommas(cart.price)}
                     </Typography>
                   </Grid>
-                  <Grid className={classes.gridItem} item xs={12} sm={3} md={3}>
+                  <Grid className={classes.gridItem} item xs={12} sm={4} md={3}>
                     <div className={classes.gridItemContent}>
                       <div
                         style={{ marginRight: '20px' }}
@@ -241,7 +246,7 @@ const CartItem = props => {
                       </div>
                       <Typography>
                         Subtotal: &#8358; {'  '}
-                        {cart.subTotal}
+                        {numberWithCommas(cart.subTotal)}
                       </Typography>
                     </div>
                   </Grid>

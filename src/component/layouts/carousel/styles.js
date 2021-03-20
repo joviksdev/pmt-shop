@@ -11,7 +11,9 @@ const carousel = theme => ({
     position: 'relative',
     height: '100%',
     overflow: 'hidden',
-    borderRadius: '5px',
+    '@media (min-width: 760px)': {
+      borderRadius: '5px',
+    },
     '& .slide': {
       height: '100%',
       backgroundSize: 'cover !important'

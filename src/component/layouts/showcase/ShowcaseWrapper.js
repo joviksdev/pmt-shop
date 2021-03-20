@@ -11,11 +11,16 @@ import Hidden from '@material-ui/core/Hidden';
 const useStyles = makeStyles({
   container: {
     ...container,
-    padding: '15px'
+    padding: '0px',
+    '@media (min-width: 760px)': {
+      padding: '0px 15px',
+      marginTop: '10px'
+    }
   },
   showcase: {
     display: 'flex',
-    height: '100%'
+    height: '100%',
+    '& .MuiGrid-item': {}
   },
   carouselWrapper: {
     height: '30vh',
@@ -25,6 +30,12 @@ const useStyles = makeStyles({
     '@media (min-width: 960px)': {
       height: 'initial'
     }
+  },
+  hidden: {
+    display: 'none',
+    '@media (min-width: 1280px)': {
+      display: 'block'
+    }
   }
 });
 
@@ -32,8 +43,8 @@ const ShowcaseWrapper = () => {
   const classes = useStyles();
   return (
     <div className={classes.container}>
-      <Grid className={classes.showcase} container spacing={2}>
-        <Grid item md={3} lg={2}>
+      <Grid className={classes.showcase} container>
+        <Grid style={{ paddingRight: '10px' }} item md={3} lg={2}>
           <Hidden smDown implementation='css'>
             <CategorySidebar />
           </Hidden>
@@ -48,10 +59,8 @@ const ShowcaseWrapper = () => {
         >
           <Slider />
         </Grid>
-        <Grid item lg={2}>
-          <Hidden mdDown implementation='css'>
-            adds
-          </Hidden>
+        <Grid className={classes.hidden} item lg={2}>
+          adds
         </Grid>
       </Grid>
     </div>

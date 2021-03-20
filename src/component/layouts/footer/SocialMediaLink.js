@@ -1,4 +1,5 @@
 import React from 'react';
+import styles from './styles';
 
 // Material-UI/Core
 import Typography from '@material-ui/core/Typography';
@@ -9,30 +10,10 @@ import Button from '@material-ui/core/Button';
 import FacebookIcon from '@material-ui/icons/Facebook';
 import TwitterIcon from '@material-ui/icons/Twitter';
 
-import {
-  defaultBoxShadow,
-  primaryColor,
-  grayColor
-} from '../../assets/js/styleCss';
-
-const styles = makeStyles({
-  svgIcon: {
-    minWidth: 'initial !important',
-    padding: '8px',
-    borderRadius: '50%',
-    margin: '0 10px',
-    fontSize: '14px',
-    color: grayColor[9],
-    backgroundColor: grayColor[7],
-    ...defaultBoxShadow,
-    '&:hover': {
-      backgroundColor: primaryColor
-    }
-  }
-});
+const useStyles = makeStyles(styles);
 
 const SocialMediaLink = () => {
-  const classes = styles();
+  const classes = useStyles();
   return (
     <div style={{ marginTop: '10px' }}>
       <Typography style={{ marginBottom: '10px' }} variant='body2'>

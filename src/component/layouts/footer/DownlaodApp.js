@@ -1,57 +1,27 @@
 import React from 'react';
+import SocialMediaLink from './SocialMediaLink';
+import styles from './styles';
 
 // Material-Ui/Core
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
+import Box from '@material-ui/core/Box';
 
 // Material-UI/Icon
 import AppleIcon from '@material-ui/icons/Apple';
 import AdbIcon from '@material-ui/icons/Adb';
-import { defaultBoxShadow, grayColor } from '../../assets/js/styleCss';
 
-const styles = makeStyles({
-  container: {
-    marginTop: '20px',
-    '@media (min-width: 760px)': {
-      marginTop: '0px',
-      padding: '5px'
-    }
-  },
-  gridItem: {
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    padding: '6px',
-    borderRadius: '5px',
-    backgroundColor: grayColor[7],
-    ...defaultBoxShadow
-  },
-  icon: {
-    fontSize: '28px',
-    marginRight: '5px'
-  },
-  headerText: {
-    fontWeight: 'bold',
-    fontSize: '14px',
-    textTransform: 'uppercase',
-    marginBottom: '5px',
-    color: grayColor[6]
-  },
-  text: {
-    marginBottom: '0px',
-    fontSize: '10px'
-  }
-});
+const useStyles = makeStyles(styles);
 
 const DownlaodApp = () => {
-  const classes = styles();
+  const classes = useStyles();
   return (
-    <div className={classes.container}>
+    <div className={classes.subContainer}>
       <Typography className={classes.headerText} variant='h6'>
         Download app
       </Typography>
-      <Grid container spacing={2}>
+      <Grid style={{ maxWidth: '360px' }} container spacing={2}>
         <Grid xs={6} item>
           <div className={classes.gridItem}>
             <div>
@@ -83,6 +53,9 @@ const DownlaodApp = () => {
           </div>
         </Grid>
       </Grid>
+      <Box>
+        <SocialMediaLink />
+      </Box>
     </div>
   );
 };

@@ -1,4 +1,5 @@
 import React from 'react';
+import numberWithCommas from '../../../utils/numberWithCommas';
 
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
@@ -93,7 +94,7 @@ const ProductDetails = props => {
         variant='h6'
       >
         Price: <span>&#8358;</span> {'  '}
-        {price}
+        {numberWithCommas(price)}
       </Typography>
       <Grid container spacing={1}>
         <Grid item xs={6}>

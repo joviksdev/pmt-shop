@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import cx from 'classnames';
 import logo from '../../assets/img/logo.png';
 import Search from '../search/Search';
+import CategoryBar from './categories';
 
 // @material-ul/core
 
@@ -24,9 +25,8 @@ import ShoppingCartOutlinedIcon from '@material-ui/icons/ShoppingCartOutlined';
 import AssignmentOutlinedIcon from '@material-ui/icons/AssignmentOutlined';
 import MenuIcon from '@material-ui/icons/Menu';
 import HelpOutlineOutlinedIcon from '@material-ui/icons/HelpOutlineOutlined';
-import FormatListBulletedIcon from '@material-ui/icons/FormatListBulleted';
 
-import styles from '../../assets/js/styleCss/headerStyle';
+import styles from './styles';
 const useStyles = makeStyles(styles);
 
 const Header = () => {
@@ -45,15 +45,6 @@ const Header = () => {
   const closeMenu = () => setAnchorEl(null);
 
   const rotateSvg = cx({ [classes.rotateSvg]: Boolean(anchorEl) });
-
-  const [isHover, setIsHover] = useState(false);
-
-  // Category toggler
-  const handleClick = () => {
-    setIsHover(!isHover);
-  };
-
-  const rotate = cx({ [classes.rotateSvg]: isHover });
 
   return (
     <div style={{ position: 'relative' }} className={classes.headerMainWrapper}>
@@ -196,35 +187,8 @@ const Header = () => {
             </div>
           </div>
         </Hidden>
-        <div className={classes.container}>
-          <Hidden smDown implementation='css'>
-            <div className={classes.categoryWrapper}>
-              <MenuList className={classes.menuList}>
-                <MenuItem
-                  className={`${classes.categoryBtn} ${classes.categoryMenuList}`}
-                  onClick={() => handleClick()}
-                >
-                  <FormatListBulletedIcon style={{ marginRight: '5px' }} />
-                  Categories
-                  <ArrowDropDownIcon className={rotate} />
-                </MenuItem>
-                <MenuItem className={classes.categoryMenuList}>
-                  New Arrivals
-                </MenuItem>
-                <MenuItem className={classes.categoryMenuList}>
-                  Recommended for you
-                </MenuItem>
-                <MenuItem className={classes.categoryMenuList}>
-                  Official Stores
-                </MenuItem>
-                <MenuItem className={classes.categoryMenuList}>
-                  Trending Now
-                </MenuItem>
-              </MenuList>
-            </div>
-          </Hidden>
-        </div>
       </div>
+      <CategoryBar />
     </div>
   );
 };

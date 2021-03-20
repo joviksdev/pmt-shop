@@ -119,6 +119,7 @@ body {
 .slide.animateIn.next section span strong {
   -webkit-transition-delay: 1.5s;
   transition-delay: 1.5s;
+
 }
 
 .slide.animateOut h4 {

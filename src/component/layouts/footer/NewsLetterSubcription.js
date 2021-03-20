@@ -1,5 +1,6 @@
 import React from 'react';
 import CustomInput from '../customComponent/CustomInput';
+import styles from './styles';
 
 // Material-UI/Core
 import { makeStyles } from '@material-ui/core/styles';
@@ -7,56 +8,15 @@ import { makeStyles } from '@material-ui/core/styles';
 // Material-UI/Icon
 import SendIcon from '@material-ui/icons/Send';
 import Button from '@material-ui/core/Button';
-
-import {
-  container,
-  grayColor,
-  primaryColor,
-  whiteColor
-} from '../../assets/js/styleCss';
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
 
-const styles = makeStyles({
-  container: {
-    backgroundColor: grayColor[4],
-    padding: '20px 0px',
-    color: grayColor[2]
-  },
-  gridContainer: {
-    ...container,
-    display: 'flex',
-    alignItems: 'center'
-  },
-  form: {
-    maxWidth: '600px',
-    display: 'flex',
-    justifyContent: 'center'
-  },
-  btn: {
-    backgroundColor: primaryColor,
-    color: whiteColor,
-    marginLeft: '5px',
-    '&:hover': {
-      backgroundColor: primaryColor
-    }
-  },
-  headerText: {
-    textTransform: 'uppercase',
-    fontSize: '14px',
-    fontWeight: 'bold'
-  },
-  text: {
-    '@media (min-width: 960px)': {
-      marginBottom: '0px'
-    }
-  }
-});
+const useStyles = makeStyles(styles);
 
 const NewsLetterSubcription = () => {
-  const classes = styles();
+  const classes = useStyles();
   return (
-    <div className={classes.container}>
+    <div className={classes.subScriptionContainer}>
       <Grid container className={classes.gridContainer}>
         <Grid item xs={12} md={5}>
           <Typography className={classes.headerText} variant='h6'>
