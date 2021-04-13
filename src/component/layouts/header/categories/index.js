@@ -28,7 +28,7 @@ const CategoryBar = () => {
     <div className={classes.container}>
       <Hidden smDown implementation='css'>
         <div>
-          <List className={classes.menuList} style={{ paddingBottom: '10px' }}>
+          <List className={classes.menuList} style={{ padding: '10px 0' }}>
             {path !== '/' && (
               <ListItem
                 className={`${classes.categoryBtn} ${classes.categoryMenuList}`}
