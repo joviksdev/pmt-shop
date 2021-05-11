@@ -7,18 +7,23 @@ import Wallet from './Wallet';
 import Setting from './Setting';
 import Account from './Account';
 
-const ProfileWrapper = () => {
-  return (
-    <div>
-      <Header />
-      <User />
-      <Wallet />
-      <Account />
-      <Setting />
-      <MobileBottomNavbar />
-      <Footer />
-    </div>
-  );
+import Box from '@material-ui/core/Box';
+
+const ProfileWrapper = (props) => {
+	return (
+		<div>
+			<Header hideSearch={true} />
+			<MobileBottomNavbar />
+
+			<Box>
+				<User />
+				<Wallet />
+				<Account />
+				<Setting />
+			</Box>
+			<Footer />
+		</div>
+	);
 };
 
 export default ProfileWrapper;

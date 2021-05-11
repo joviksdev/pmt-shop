@@ -12,56 +12,56 @@ import AndroidPhone from '../component/views/categoryList/adroidPhone';
 import Laptops from '../component/views/categoryList/laptops';
 
 const appRoute = [
-  {
-    path: '/',
-    name: 'Home',
-    component: Index
-  },
-  {
-    path: '/auth/login',
-    name: 'Login',
-    component: Login
-  },
-  {
-    path: '/auth/register',
-    name: 'Register',
-    component: Register
-  },
-  {
-    path: '/item/:name/:id',
-    name: 'Product',
-    component: Product
-  },
-  {
-    path: '/cart',
-    name: 'Cart',
-    component: Cart
-  },
-  {
-    path: '/profile',
-    name: 'Profile',
-    component: Profile
-  },
-  {
-    path: '/rate-review',
-    name: 'Rate and Review',
-    component: RateReview
-  },
-  {
-    path: '/checkout/:item',
-    name: 'Checkout',
-    component: Checkout
-  },
-  {
-    path: '/android-phones',
-    name: 'Android Phones',
-    component: AndroidPhone
-  },
-  {
-    path: '/laptops',
-    name: 'Laptops',
-    component: Laptops
-  }
+	{
+		path: '/',
+		name: 'Home',
+		component: Index,
+	},
+	{
+		path: '/auth/login',
+		name: 'Login',
+		component: Login,
+	},
+	{
+		path: '/auth/register',
+		name: 'Register',
+		component: Register,
+	},
+	{
+		path: '/item/:name/:id',
+		name: 'Product',
+		component: Product,
+	},
+	{
+		path: '/cart',
+		name: 'Cart',
+		component: Cart,
+	},
+	{
+		path: '/user',
+		name: 'Profile',
+		component: Profile,
+	},
+	{
+		path: '/rate-review',
+		name: 'Rate and Review',
+		component: RateReview,
+	},
+	{
+		path: '/checkout/:item',
+		name: 'Checkout',
+		component: Checkout,
+	},
+	{
+		path: '/android-phones',
+		name: 'Android Phones',
+		component: AndroidPhone,
+	},
+	{
+		path: '/laptops',
+		name: 'Laptops',
+		component: Laptops,
+	},
 ];
 
 export default appRoute;

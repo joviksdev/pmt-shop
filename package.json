@@ -32,7 +32,6 @@
     "eject": "react-scripts eject",
     "start": "node server.js",
     "apprunner": "pm2 start server.js -i 1 --name erp-ecommerce"
-
   },
   "eslintConfig": {
     "extends": [

@@ -1,206 +1,219 @@
 import React, { useReducer } from 'react';
 import appReducer from './appReducer';
 import AppContext from './appContext';
+import axios from 'axios';
 
 import {
-  TOGGLE_SIDEBAR,
-  DISPLAY_SUB_SIDEBAR,
-  CLOSE_SUB_SIDEBAR,
-  GET_CART,
-  ADD_CART,
-  DISPLAY_ALERT,
-  HIDE_ALERT,
-  REMOVE_CART,
-  INCREMENT_CART,
-  DECREMENT_CART
+	TOGGLE_SIDEBAR,
+	DISPLAY_SUB_SIDEBAR,
+	CLOSE_SUB_SIDEBAR,
+	GET_CART,
+	ADD_CART,
+	DISPLAY_ALERT,
+	HIDE_ALERT,
+	REMOVE_CART,
+	INCREMENT_CART,
+	DECREMENT_CART,
 } from '../types';
 
-const AppState = props => {
-  const initialState = {
-    isDisplaySidebar: false,
-    isDisplaySubCategory: false,
-    subCategoryData: null,
-    carts: null,
-    alertMsg: null
-  };
+const api = process.env.REACT_APP_LOCAL_API;
 
-  const [state, dispatch] = useReducer(appReducer, initialState);
+const AppState = (props) => {
+	const initialState = {
+		isDisplaySidebar: false,
+		isDisplaySubCategory: false,
+		subCategoryData: null,
+		carts: null,
+		alertMsg: null,
+	};
 
-  const toggleSideBar = () => {
-    dispatch({
-      type: TOGGLE_SIDEBAR
-    });
-  };
+	const [state, dispatch] = useReducer(appReducer, initialState);
 
-  const displaySubSidebar = payload => {
-    dispatch({
-      type: DISPLAY_SUB_SIDEBAR,
-      payload
-    });
-  };
+	// Toggle side bar
+	const toggleSideBar = () => {
+		dispatch({
+			type: TOGGLE_SIDEBAR,
+		});
+	};
 
-  const closeSubSidebar = () => {
-    dispatch({
-      type: CLOSE_SUB_SIDEBAR
-    });
-  };
+	const displaySubSidebar = (payload) => {
+		dispatch({
+			type: DISPLAY_SUB_SIDEBAR,
+			payload,
+		});
+	};
 
-  // Add To Cart
-  const addToCart = (item, props) => {
-    // Add quantity
-    item.quantity = 1;
-    const cartInLocalStorage = localStorage.getItem('pmt-cart');
+	const closeSubSidebar = () => {
+		dispatch({
+			type: CLOSE_SUB_SIDEBAR,
+		});
+	};
 
-    if (state.carts) {
-      const isfind = state.carts.find(cart => cart.id === item.id);
-      if (isfind) {
-        setAlert('Item already in cart');
-        console.log('click');
-      } else {
-        dispatch({
-          type: ADD_CART,
-          payload: [item, ...state.carts]
-        });
+	const retrieveProducts = async () => {
+		try {
+			const res = await axios.get(`${api}/products`);
+			const products = res.data.payload;
+			console.log(products);
+		} catch (error) {}
+	};
 
-        // Store To LocalStorage
-        if (cartInLocalStorage) {
-          localStorage.setItem(
-            'pmt-cart',
-            JSON.stringify([item, ...JSON.parse(cartInLocalStorage)])
-          );
-        } else {
-          localStorage.setItem('pmt-cart', JSON.stringify([item]));
-        }
+	// Add To Cart
+	const addToCart = (item, props) => {
+		// Add quantity
+		item.quantity = 1;
+		const cartInLocalStorage = localStorage.getItem('pmt-cart');
 
-        // Redirect to Cart Page
-        props.history.push('/cart');
-      }
-    } else {
-      dispatch({
-        type: ADD_CART,
-        payload: [item]
-      });
+		if (state.carts) {
+			const isfind = state.carts.find((cart) => cart.id === item.id);
+			if (isfind) {
+				setAlert('Item already in cart');
+				console.log('click');
+			} else {
+				dispatch({
+					type: ADD_CART,
+					payload: [item, ...state.carts],
+				});
 
-      // Store to Cart
-      localStorage.setItem('pmt-cart', JSON.stringify([item]));
+				// Store To LocalStorage
+				if (cartInLocalStorage) {
+					localStorage.setItem(
+						'pmt-cart',
+						JSON.stringify([item, ...JSON.parse(cartInLocalStorage)])
+					);
+				} else {
+					localStorage.setItem('pmt-cart', JSON.stringify([item]));
+				}
 
-      // Redirect to Cart Page
-      props.history.push('/cart');
-    }
-  };
+				// Redirect to Cart Page
+				props.history.push('/cart');
+			}
+		} else {
+			dispatch({
+				type: ADD_CART,
+				payload: [item],
+			});
 
-  // Load Cart
-  const getCart = () => {
-    const cartInLocalStorage = localStorage.getItem('pmt-cart');
+			// Store to Cart
+			localStorage.setItem('pmt-cart', JSON.stringify([item]));
 
-    if (cartInLocalStorage) {
-      dispatch({
-        type: GET_CART,
-        payload: JSON.parse(cartInLocalStorage)
-      });
-    }
-  };
+			// Redirect to Cart Page
+			props.history.push('/cart');
+		}
+	};
 
-  // Remove Cart
-  const removeCart = id => {
-    dispatch({
-      type: REMOVE_CART,
-      payload: id
-    });
+	// Load Cart
+	const getCart = () => {
+		const cartInLocalStorage = localStorage.getItem('pmt-cart');
 
-    // Cart in localStorage
-    const cartInLocalStorage = localStorage.getItem('pmt-cart');
-    if (cartInLocalStorage) {
-      const carts = JSON.parse(cartInLocalStorage).filter(
-        cart => cart.id !== id
-      );
-      localStorage.setItem('pmt-cart', JSON.stringify(carts));
-    }
-  };
+		if (cartInLocalStorage) {
+			dispatch({
+				type: GET_CART,
+				payload: JSON.parse(cartInLocalStorage),
+			});
+		}
+	};
 
-  // Update Cart
-  // Imcrement Cart
-  const incrementCart = cart => {
-    // Get Item From LocalStorage
-    const itemFromStore = JSON.parse(localStorage.getItem('pmt-cart'));
+	// Remove Cart
+	const removeCart = (id) => {
+		dispatch({
+			type: REMOVE_CART,
+			payload: id,
+		});
 
-    // Find item by ID and Increment Quantity and SubTotal
-    const carts = itemFromStore.map(item =>
-      item.id === cart.id
-        ? {
-            ...item,
-            quantity: cart.quantity + 1,
-            subTotal: parseInt(cart.subTotal) + parseInt(cart.price)
-          }
-        : item
-    );
+		// Cart in localStorage
+		const cartInLocalStorage = localStorage.getItem('pmt-cart');
+		if (cartInLocalStorage) {
+			const carts = JSON.parse(cartInLocalStorage).filter(
+				(cart) => cart.id !== id
+			);
+			localStorage.setItem('pmt-cart', JSON.stringify(carts));
+		}
+	};
 
-    localStorage.setItem('pmt-cart', JSON.stringify(carts));
+	// Update Cart
+	// Imcrement Cart
+	const incrementCart = (cart) => {
+		// Get Item From LocalStorage
+		const itemFromStore = JSON.parse(localStorage.getItem('pmt-cart'));
 
-    dispatch({
-      type: INCREMENT_CART,
-      payload: cart
-    });
-  };
+		// Find item by ID and Increment Quantity and SubTotal
+		const carts = itemFromStore.map((item) =>
+			item.id === cart.id
+				? {
+						...item,
+						quantity: cart.quantity + 1,
+						subTotal: parseInt(cart.subTotal) + parseInt(cart.price),
+				  }
+				: item
+		);
 
-  // Decrement Cart
-  const decrementCart = cart => {
-    // Get Item From LocalStorage
-    const itemFromStore = JSON.parse(localStorage.getItem('pmt-cart'));
+		localStorage.setItem('pmt-cart', JSON.stringify(carts));
 
-    // Find item by ID and Increment Quantity and SubTotal
-    const carts = itemFromStore.map(item =>
-      item.id === cart.id
-        ? {
-            ...item,
-            quantity: cart.quantity - 1,
-            subTotal: parseInt(cart.subTotal) - parseInt(cart.price)
-          }
-        : item
-    );
+		dispatch({
+			type: INCREMENT_CART,
+			payload: cart,
+		});
+	};
 
-    localStorage.setItem('pmt-cart', JSON.stringify(carts));
-    dispatch({
-      type: DECREMENT_CART,
-      payload: cart
-    });
-  };
+	// Decrement Cart
+	const decrementCart = (cart) => {
+		// Get Item From LocalStorage
+		const itemFromStore = JSON.parse(localStorage.getItem('pmt-cart'));
 
-  // Set Alert
-  const setAlert = msg => {
-    dispatch({
-      type: DISPLAY_ALERT,
-      payload: msg
-    });
+		// Find item by ID and Increment Quantity and SubTotal
+		const carts = itemFromStore.map((item) =>
+			item.id === cart.id
+				? {
+						...item,
+						quantity: cart.quantity - 1,
+						subTotal: parseInt(cart.subTotal) - parseInt(cart.price),
+				  }
+				: item
+		);
 
-    setTimeout(() => {
-      dispatch({
-        type: HIDE_ALERT
-      });
-    }, 2000);
-  };
+		localStorage.setItem('pmt-cart', JSON.stringify(carts));
+		dispatch({
+			type: DECREMENT_CART,
+			payload: cart,
+		});
+	};
 
-  return (
-    <AppContext.Provider
-      value={{
-        isDisplaySidebar: state.isDisplaySidebar,
-        isDisplaySubCategory: state.isDisplaySubCategory,
-        subCategoryData: state.subCategoryData,
-        carts: state.carts,
-        alertMsg: state.alertMsg,
-        toggleSideBar,
-        displaySubSidebar,
-        closeSubSidebar,
-        addToCart,
-        getCart,
-        removeCart,
-        incrementCart,
-        decrementCart
-      }}
-    >
-      {props.children}
-    </AppContext.Provider>
-  );
+	// Set Alert
+	const setAlert = (msg) => {
+		dispatch({
+			type: DISPLAY_ALERT,
+			payload: msg,
+		});
+
+		setTimeout(() => {
+			dispatch({
+				type: HIDE_ALERT,
+			});
+		}, 2000);
+	};
+
+	return (
+		<AppContext.Provider
+			value={{
+				isDisplaySidebar: state.isDisplaySidebar,
+				isDisplaySubCategory: state.isDisplaySubCategory,
+				subCategoryData: state.subCategoryData,
+				carts: state.carts,
+				alertMsg: state.alertMsg,
+				retrieveProducts,
+				toggleSideBar,
+				displaySubSidebar,
+				closeSubSidebar,
+				addToCart,
+				getCart,
+				removeCart,
+				incrementCart,
+				decrementCart,
+			}}
+		>
+			{props.children}
+		</AppContext.Provider>
+	);
 };
 
 export default AppState;

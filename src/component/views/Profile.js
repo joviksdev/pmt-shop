@@ -1,12 +1,14 @@
 import React from 'react';
 import ProfileWrapper from '../layouts/profile/ProfileWrapper';
 
-const Profile = () => {
-  return (
-    <div>
-      <ProfileWrapper />
-    </div>
-  );
+import Box from '@material-ui/core/Box';
+
+const Profile = (props) => {
+	return (
+		<Box>
+			<ProfileWrapper {...props} />
+		</Box>
+	);
 };
 
 export default Profile;
